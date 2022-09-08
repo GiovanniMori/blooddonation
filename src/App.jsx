@@ -1,34 +1,40 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import "./App.css";
+import { auth } from '../firebase-config'
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [registerEmail, setRegisterEmail] = useState("");
+  const [registerPassword, setRegisterPassword] = useState("");
+  const [loginEmail, setLoginEmail] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
+  const register = async () => {
+    try {
+      const user = await createUserWithEmailAndPassword(auth, registerEmail, registerPassword);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+  const login = async () => { };
+  const logout = async () => { };
 
   return (
     <div className="App">
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <h3> Register User </h3>
+        <input type='email' placeholder="Email" onChange={(event) => {
+          setRegisterEmail(event.target.value);
+        }}
+        />
+        <input type='password' placeholder="Password" onChange={(event) => {
+          setRegisterPassword(event.target.value);
+        }}
+        />
+        <button onClick={(register)}>Criar Usuário</button>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
