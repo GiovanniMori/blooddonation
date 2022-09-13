@@ -1,10 +1,9 @@
 import { useState } from "react";
 import reactLogo from "./assets/react.svg";
-import "./App.css";
 import { auth } from '../firebase-config'
 import { createUserWithEmailAndPassword } from "firebase/auth";
 
-function App() {
+function Auth() {
   const [registerEmail, setRegisterEmail] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
   const [loginEmail, setLoginEmail] = useState("");
@@ -37,4 +36,4 @@ function App() {
   );
 }
 
-export default App;
+export default Auth;
