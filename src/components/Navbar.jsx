@@ -1,7 +1,8 @@
 import { React, useState } from "react";
 import Logo from "../../dist/blood-donation.png";
+import Cadastre from "./Cadastre"
 import Auth from "../Auth";
-import SignIn from "../SignIn";
+
 
 const Navbar = () => {
   
@@ -13,6 +14,7 @@ const Navbar = () => {
       >
         <img src={Logo} className="w-16" />
         <ul className="flex px-16">
+          <li className="p-4 font-bold">{<Cadastre />}</li>
           <li className="p-4 font-bold">{<Auth />}</li>
         </ul>
       </div>
