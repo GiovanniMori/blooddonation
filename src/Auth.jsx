@@ -2,6 +2,7 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 // import { auth } from "../firebase-config";
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import SignIn from "./SignIn";
 
 function Auth() {
   const [registerEmail, setRegisterEmail] = useState("");
@@ -40,7 +41,7 @@ function Auth() {
               Faça o login
             </h1>
             <input
-              className="p-6 hover:border-black mb-6"
+              className="p-6 hover:border-black mb-6 text-black"
               type="email"
               placeholder="Digite seu Email"
               onChange={(event) => {
@@ -48,13 +49,14 @@ function Auth() {
               }}
             />
             <input
-              className="p-6 hover:border-black mb-6"
+              className="p-6 hover:border-black mb-6 text-black"
               type="password"
               placeholder="Digite sua Senha"
               onChange={(event) => {
                 setRegisterPassword(event.target.value);
               }}
             />
+            <div className="flex">
             <button
               type="submit"
               className="text-white font-bold text-xl w-[100px] mx-auto rounded-xl py-3 bg-primary"
@@ -62,6 +64,12 @@ function Auth() {
             >
               Login
             </button>
+            <div className="text-white font-bold bg-primary w-[100px] mx-auto rounded-xl py-3">
+              <SignIn/>
+            </div>
+            </div>
+            
+    
           </div>
         </div>
       )}
