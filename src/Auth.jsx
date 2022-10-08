@@ -31,7 +31,7 @@ function Auth() {
   return (
     <>
       <div>
-        <button onClick={(register) => toggleModal()}>Login</button>
+        <button onClick={(register) => toggleModal()}>Auth</button>
       </div>
 
       {open && (

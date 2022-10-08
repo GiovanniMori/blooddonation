@@ -1,8 +1,10 @@
 import React from "react";
 import Typed from "react-typed";
+import {Link} from "react-router-dom"
+ 
 
 const Hero = () => {
-  return (
+    return (
     <div className="w-full text-center flex pt-8 flex-col bg-quartenary mx-auto justify-center">
       <h1 className="text-5xl md:py-6 text-primary font-bold">
         Doe Sangue, Salve uma vida
@@ -21,9 +23,9 @@ const Hero = () => {
           loop
         />
       </div>
-      <button className="bg-primary w-[200px] rounded-md font-medium text-white text-center px-2 py-4 mx-auto my-6">
+      <Link to="/about" className="bg-primary w-[200px] rounded-md font-medium text-white text-center px-2 py-4 mx-auto my-6">
         Saiba mais
-      </button>
+      </Link>
     </div>
   );
 };

@@ -1,4 +1,5 @@
 import React from 'react'
+
 import {Routes , Route} from "react-router-dom"
 import Home from "./Home"
 import Form from "./Form"
@@ -10,6 +11,7 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/form" element={<Form />} />
         </Routes>
+
     </div>
   )
 }

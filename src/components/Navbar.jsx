@@ -1,4 +1,5 @@
 import { React, useState } from "react";
+import { Link } from "react-router-dom";
 import Logo from "../../dist/blood-donation.png";
 import Cadastre from "./Cadastre"
 import Auth from "../Auth";
