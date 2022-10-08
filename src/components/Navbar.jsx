@@ -1,8 +1,9 @@
 import { React, useState } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../../dist/blood-donation.png";
+import Cadastre from "./Cadastre"
 import Auth from "../Auth";
-import SignIn from "../SignIn";
+
 
 const Navbar = () => {
   
@@ -14,10 +15,7 @@ const Navbar = () => {
       >
         <img src={Logo} className="w-16" />
         <ul className="flex px-16">
-          <li className="p-4 font-bold">Home</li>
-          <li className="p-4 font-bold">Doe</li>
-          <Link className="p-4 font-bold" to="/login">Login</Link>
-
+          <li className="p-4 font-bold">{<Cadastre />}</li>
           <li className="p-4 font-bold">{<Auth />}</li>
         </ul>
       </div>
