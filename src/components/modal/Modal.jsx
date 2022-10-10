@@ -35,7 +35,7 @@ const Modal = ({ handleClose }) => {
             animate="visible"
             exit="exit"
           >
-            <h1 className="text-black py-4">Teste</h1>
+            <h1 className="text-black text-bold text-3xl p-6">Teste</h1>
             <button className="bg-primary" onClick={handleClose}>
               close
             </button>
