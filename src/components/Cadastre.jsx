@@ -1,7 +1,7 @@
 import { useState } from "react";
 // import { auth } from "../firebase-config";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import SignIn from "../SignIn";
+import SignIn from "./SignInGoogle";
 
 function Auth() {
   const [registerEmail, setRegisterEmail] = useState("");
@@ -24,8 +24,8 @@ function Auth() {
       console.log(error.message);
     }
   };
-  const login = async () => {};
-  const logout = async () => {};
+  const login = async () => { };
+  const logout = async () => { };
 
   return (
     <>
@@ -56,19 +56,19 @@ function Auth() {
               }}
             />
             <div className="flex">
-            <button
-              type="submit"
-              className="text-white font-bold text-xl w-[100px] mx-auto rounded-xl py-3 bg-primary"
-              onClick={() => toggleModal()}
-            >
-              Login
-            </button>
-            <div className="text-white font-bold bg-primary w-[100px] mx-auto rounded-xl py-3">
-              <SignIn/>
+              <button
+                type="submit"
+                className="text-white font-bold text-xl w-[100px] mx-auto rounded-xl py-3 bg-primary"
+                onClick={() => toggleModal()}
+              >
+                Login
+              </button>
+              <div className="text-white font-bold bg-primary w-[100px] mx-auto rounded-xl py-3">
+                <SignIn />
+              </div>
             </div>
-            </div>
-            
-    
+
+
           </div>
         </div>
       )}

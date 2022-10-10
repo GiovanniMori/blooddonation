@@ -7,7 +7,6 @@ import Requirements from './Requirements';
 const Home = () => {
   return (
     <div>
-      <Navbar />
       <Hero />
       <AboutDonate />
       <Requirements />
