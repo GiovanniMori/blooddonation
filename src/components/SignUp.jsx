@@ -27,7 +27,7 @@ export default function SignUp() {
     };
 
     return (
-        <div className="text-center max-w-[700px] mx-auto my-16 p-4 ">
+        <div className="text-center mx-auto p-4 ">
             <div className="flex flex-col p-6">
                 <SignInGoogle />
                 <h1>

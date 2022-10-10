@@ -25,7 +25,7 @@ const Signin = () => {
     };
 
     return (
-        <div className='text-center max-w-[700px] mx-auto my-16 p-4'>
+        <div className='text-center mx-auto my-16 p-4'>
             <div className="flex flex-col p-6">
                 <SignInGoogle />
                 <h1>
@@ -53,12 +53,12 @@ const Signin = () => {
                 >
                     Entrar
                 </button>
-                <p className='py-2'>
-                    Não tem uma conta ainda? {' '}
-                    <Link to='/cadastre' className='underline text-primary'>
+                <div>
+                    <p className='text-primery'>Não tem conta ainda?</p>
+                </div>
+                <Link to='/cadastre' className='underline text-primary'>
                         Cadastre
                     </Link>
-                </p>
             </div>
         </div>
     );

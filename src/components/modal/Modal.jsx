@@ -1,6 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Backdrop from "./Backdrop";
+import SignUp from '../SignUp'
+import {AiOutlineClose} from "react-icons/ai";
 
 const dropIn = {
   hidden: {
@@ -35,10 +37,8 @@ const Modal = ({ handleClose }) => {
             animate="visible"
             exit="exit"
           >
-            <h1 className="text-black text-bold text-3xl p-6">Teste</h1>
-            <button className="bg-primary" onClick={handleClose}>
-              close
-            </button>
+            <AiOutlineClose onClick={handleClose}/>
+            <SignUp />
           </motion.div>
         </div>
       </Backdrop>

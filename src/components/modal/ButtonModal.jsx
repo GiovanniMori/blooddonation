@@ -1,5 +1,11 @@
 import {React, useState} from 'react'
-import Modal from "./Modal"
+import SignUp from '../SignUp'
+import { motion } from "framer-motion";
+import Backdrop from "./Backdrop";
+import {AiOutlineClose} from "react-icons/ai";
+import Modallog from './Modallog';
+import Modal from './Modal';
+
 
 const ButtonModal = () => {
     const [modalOpen, setModalOpen]= useState(false)
@@ -7,10 +13,11 @@ const ButtonModal = () => {
     const open = () => setModalOpen(true)
   return (
     <div>
-        <button className="bg-tertiary w-[100px] h-16"onClick={() => (modalOpen ? close(): open())} >teste</button>
-        {modalOpen && <Modal modalOpen={modalOpen} handleClose={close} />}
+        <p >teste</p>
+        
+        {modalOpen && <Modallog modalOpen={modalOpen} handleClose={close} />}
     </div>
-
+    
     
   )
 }

@@ -3,6 +3,8 @@ import { Link, Navigate, Outlet, useNavigate } from "react-router-dom";
 import Logo from "../../dist/blood-donation.png";
 import Cadastre from "./Cadastre"
 import { AuthContextProvider, UserAuth } from "../contexts/AuthContext";
+import ButtonModal from "./modal/ButtonModal";
+import Modallog from "./modal/Modallog"
 
 const Navbar = () => {
   const { user, logout } = UserAuth();
@@ -20,11 +22,14 @@ const Navbar = () => {
   };
 
 
+
   return (
     <div>
       <div className="flex justify-between items-center w-full h-24 px-7 bg-primary text-white"
         id="navbar-container">
+        <Link to="/">
         <img src={Logo} className="w-16" />
+        </Link>
         <ul className="flex px-16">
           <li className="p-4 font-bold">
             <Link to="/" relative="path">Início</Link></li>
@@ -43,11 +48,13 @@ const Navbar = () => {
             </div>) : (<div>
               <ul className="flex px-16">
                 <li className="p-4 font-bold">
-                  <Link to="/cadastre" relative="path">Cadastre-se</Link>
+                <Link to="/cadastre" relative="path">Cadastre-se</Link>
                 </li>
                 <li className="p-4 font-bold">
-                  <Link to="/login" relative="path">Entrar</Link>
-                </li>
+                  <Link to="/login" relative="path">Login</Link>
+                 </li>
+
+               
               </ul>
             </div>)
           }
