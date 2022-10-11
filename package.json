@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.2",
+    "dotenv": "^16.0.3",
     "firebase": "^9.9.4",
     "framer-motion": "^7.5.3",
     "localforage": "^1.10.0",
