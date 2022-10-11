@@ -1,8 +1,6 @@
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../services/firebase";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SignInGoogle from "./SignInGoogle"
-import { Link, redirect, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { UserAuth } from "../contexts/AuthContext";
 
 
@@ -13,9 +11,12 @@ export default function SignUp() {
     const { createUser } = UserAuth();
     const { user } = UserAuth();
 
-    if (user) {
-        return navigate('/')
-    }
+    useEffect(() => {
+        if (user) {
+            navigate("/")
+        }
+    })
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -52,7 +53,7 @@ export default function SignUp() {
                             setRegisterPassword(event.target.value);
                         }} ></input>
                 </div>
-                
+
                 <button
                     type="submit"
                     className="text-white font-bold text-xl py-2 px-5 mb-3 mx-auto rounded-xl border-white border-2 bg-primary"
@@ -64,7 +65,7 @@ export default function SignUp() {
                     <p className='text-black text-lg'>Não tem conta ainda?</p>
                     <Link to='/login' className='underline text-primary'>Entre</Link>
                 </div>
-                
+
                 <h1>Ao clicar "Criar Conta", eu concordo com os termos e condições</h1>
 
             </div>

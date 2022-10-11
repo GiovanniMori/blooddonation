@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import { AuthContextProvider, UserAuth } from "../contexts/AuthContext";
 
 const Form = () => {
@@ -8,11 +9,18 @@ const Form = () => {
         handleSubmit,
         formState: { errors },
     } = useForm();
+    const navigate = useNavigate();
     const { user } = UserAuth();
+
+    useEffect(() => {
+        if (!user) {
+            navigate("/login")
+        }
+    })
 
     return (
         <div>
-            {user ? (<div className='bg-secondary py-7 px-12'>
+            <div className='bg-secondary py-7 px-12'>
                 <div className="p-4 font-bold">
                     <h1 className="text-4xl text-black font-bold px-16">Realize seu cadastro aqui</h1>
                     <div className="flex flex-col px-16 py-3">
@@ -37,11 +45,7 @@ const Form = () => {
                         </form>
                     </div>
                 </div>
-            </div>) : (<div className='bg-secondary py-7 px-12'>
-                <div className="p-4 font-bold">
-                    <h1 className="text-4xl text-black font-bold px-16">Você não está logado</h1>
-                </div>
-            </div>)}
+            </div>
         </div>
     );
 };

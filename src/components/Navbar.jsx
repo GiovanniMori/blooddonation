@@ -3,7 +3,8 @@ import { Link, Navigate, Outlet, useNavigate } from "react-router-dom";
 import Logo from "../../dist/blood-donation.png";
 import Cadastre from "./Cadastre"
 import { AuthContextProvider, UserAuth } from "../contexts/AuthContext";
-
+import Modallog from "./modal/Modallog";
+import ModalReg from "./modal/ModalReg";
 
 const Navbar = () => {
   const { user, logout } = UserAuth();
@@ -27,7 +28,7 @@ const Navbar = () => {
       <div className="flex justify-between items-center w-full h-24 px-7 bg-primary text-white"
         id="navbar-container">
         <Link to="/">
-        <img src={Logo} className="w-16" />
+          <img src={Logo} className="w-16" />
         </Link>
         <ul className="flex px-16">
           <li className="p-4 font-bold">
@@ -47,11 +48,11 @@ const Navbar = () => {
             </div>) : (<div>
               <ul className="flex px-16">
                 <li className="p-4 font-bold">
-                <Link to="/cadastre" relative="path">Cadastre-se</Link>
+                  <Modallog />
                 </li>
                 <li className="p-4 font-bold">
-                  <Link to="/login" relative="path">Login</Link>
-                 </li>
+                  <ModalReg />
+                </li>
               </ul>
             </div>)
           }

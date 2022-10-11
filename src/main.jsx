@@ -37,29 +37,24 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-        errorElement: <ErrorPage />,
       },
       {
         path: "aboutdonate",
         element: <AboutDonate />,
-        errorElement: <ErrorPage />,
       },
       {
-        path: "form",
+        path: "/form",
         element: <Form />,
-        errorElement: <ErrorPage />,
-      },
-      {
-        path: "cadastre",
-        element: <ModalReg />,
-        errorElement: <ErrorPage />,
-      },
-      {
-        path: "login",
-        element: <Modallog />,
-        errorElement: <ErrorPage />,
       },
     ],
+  },
+  {
+    path: "login",
+    element: <LogIn />,
+  },
+  {
+    path: "cadastre",
+    element: <SignUp />,
   },
 ]);
 
