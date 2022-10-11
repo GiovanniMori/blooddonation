@@ -25,7 +25,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <div className="flex justify-between items-center w-full h-24 px-7 bg-primary text-white"
+      <div className="flex justify-between items-center w-full h-24 px-7 bg-gradient-to-r from-primary to-red-900 text-white"
         id="navbar-container">
         <Link to="/">
           <img src={Logo} className="w-16" />
