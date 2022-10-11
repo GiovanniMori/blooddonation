@@ -1,9 +1,9 @@
 import {React, useState} from "react";
 import { motion } from "framer-motion";
 import Backdrop from "./Backdrop";
-import Signin from '../LogIn'
 import {AiOutlineClose} from "react-icons/ai";
 import { Link } from "react-router-dom";
+import SignUp from '../SignUp'
 
 const dropIn = {
   hidden: {
@@ -28,7 +28,7 @@ const dropIn = {
 
 
 
-const Modallog = () => {
+const ModalReg = () => {
     const [modalOpen, setModalOpen]= useState(true)
     const close = () => setModalOpen(false)
     const open = () => setModalOpen(true)
@@ -50,7 +50,7 @@ const Modallog = () => {
                 <Link to="/">
                     <AiOutlineClose className="h-7 w-7 float-right" onClick={close}/>
                 </Link>
-                <Signin />
+                <SignUp />
               </motion.div>
             </div>
           </Backdrop>
@@ -59,4 +59,4 @@ const Modallog = () => {
   );
 };
 
-export default Modallog;
+export default ModalReg;

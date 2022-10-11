@@ -3,8 +3,7 @@ import { Link, Navigate, Outlet, useNavigate } from "react-router-dom";
 import Logo from "../../dist/blood-donation.png";
 import Cadastre from "./Cadastre"
 import { AuthContextProvider, UserAuth } from "../contexts/AuthContext";
-import ButtonModal from "./modal/ButtonModal";
-import Modallog from "./modal/Modallog"
+
 
 const Navbar = () => {
   const { user, logout } = UserAuth();
@@ -53,8 +52,6 @@ const Navbar = () => {
                 <li className="p-4 font-bold">
                   <Link to="/login" relative="path">Login</Link>
                  </li>
-
-               
               </ul>
             </div>)
           }

@@ -16,7 +16,7 @@ import SignUp from "./components/SignUp";
 import LogIn from "./components/LogIn";
 import { AuthContextProvider, UserAuth } from "./contexts/AuthContext";
 import Modallog from "./components/modal/Modallog";
-import ButtonModal from "./components/modal/ButtonModal";
+import ModalReg from "./components/modal/ModalReg";
 
 const router = createBrowserRouter([
   {
@@ -50,7 +50,7 @@ const router = createBrowserRouter([
       },
       {
         path: "cadastre",
-        element: <SignUp />,
+        element: <ModalReg />,
         errorElement: <ErrorPage />,
       },
       {
