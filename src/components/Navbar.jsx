@@ -1,10 +1,10 @@
 import { React, useState, useContext } from "react";
 import { Link, Navigate, Outlet, useNavigate } from "react-router-dom";
 import Logo from "../../dist/blood-donation.png";
-import Cadastre from "./Cadastre"
 import { AuthContextProvider, UserAuth } from "../contexts/AuthContext";
 import Modallog from "./modal/Modallog";
 import ModalReg from "./modal/ModalReg";
+
 
 const Navbar = () => {
   const { user, logout } = UserAuth();
