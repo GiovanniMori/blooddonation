@@ -13,9 +13,11 @@ export default function SignUp() {
     const { createUser } = UserAuth();
     const { user } = UserAuth();
 
-    if (user) {
-        return navigate('/')
-    }
+    useEffect(() => {
+        if (user) {
+            navigate("/")
+        }
+    })
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {

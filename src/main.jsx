@@ -18,6 +18,8 @@ import LogIn from "./components/LogIn";
 import { AuthContextProvider, UserAuth } from "./contexts/AuthContext";
 import Modallog from "./components/modal/Modallog";
 import ModalReg from "./components/modal/ModalReg";
+import PageHeader from "./components/User/PageHeader";
+import UserPage from "./components/User/UserPage";
 
 const router = createBrowserRouter([
   {
@@ -57,6 +59,11 @@ const router = createBrowserRouter([
       {
         path: "login",
         element: <Modallog />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "user",
+        element: <UserPage />,
         errorElement: <ErrorPage />,
       },
     ],
