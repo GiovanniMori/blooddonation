@@ -27,57 +27,71 @@ const Form = () => {
    }
 
     const {
-        register,
-        handleSubmit,
-        formState: { errors },
-    } = useForm();
-    const { user } = UserAuth();
-
+      register,
+      handleSubmit,
+      watch,
+      formState: { errors },
+      reset,
+   } = useForm();
+  
+  const  loginUser  =  data  =>  console.log(data);
+  
     return (
-        <div>
-            {user ? (<div className='bg-secondary py-7 px-12'>
-                <div className="p-4 font-bold">
-                    <h1 className="text-4xl text-black font-bold px-16">Realize seu cadastro aqui</h1>
-                    <div className="flex flex-col px-16 py-3">
-                        <form onSubmit={handleSubmit((data) => console.log(data))}>
-                            <div className="flex flex-col mb-4">
-                                <h1 className="font-bold text-xl text-white mb-2">Nome</h1>
-                                <input onChange={(event) => {setNome(event.target.value)}} className="h-10 rounded-md w-2/3" placeholder="Digite o seu Nome"/>
-                            </div>
-                            <div className="flex flex-col mb-4">
-                                <h1 className="font-bold text-xl text-white mb-2">Idade</h1>
-                                <input onChange={(event) => {setIdade(event.target.value)}} className="h-10 rounded-md w-2/3" placeholder="Digite a sua idade"/>
-                            </div>
-                            <div className="flex flex-col mb-4">
-                                <h1 className="font-bold text-xl text-white mb-2">Email</h1>
-                                <input onChange={(event) => {setEmail(event.target.value)}} className="h-10 rounded-md w-2/3" placeholder="Digite o seu Email"/>
-                            </div>
-                            <div className="flex flex-col mb-4">
-                                <h1 className="font-bold text-xl text-white mb-2">RG</h1>
-                                <input onChange={(event) => {setRg(event.target.value)}} className="h-10 rounded-md w-2/3" placeholder="Digite o seu RG"/>
-                            </div>
-                            <div className="flex flex-col mb-4">
-                                <h1 className="font-bold text-xl text-white mb-2">CPF</h1>
-                                <input onChange={(event) => {setCpf(event.target.value)}} className="h-10 rounded-md w-2/3" placeholder="Digite o seu CPF"/>
-                            </div>
-                            <div className="flex flex-col mb-4">
-                                <h1 className="font-bold text-xl text-white mb-2">Genero</h1>
-                                <input onChange={(event) => {setGenero(event.target.value)}} className="h-10 rounded-md w-2/3" placeholder="Digite o seu genero"/>
-                            </div>
-                            <div className="flex flex-col mb-4">
-                                <h1 className="font-bold text-xl text-white mb-2">Tipo de sangue</h1>
-                                <input onChange={(event) => {setTipo_sangue(event.target.value)}} className="h-10 rounded-md w-2/3" placeholder="Digite o seu tipo de sangue"/>
-                            </div>
-                            <input onClick={addDoador} className="bg-primary rounded p-4 font-bold text-base text-white cursor-pointer" type="submit" />
-                        </form>
-                    </div>
-                </div>
-            </div>) : (<div className='bg-secondary py-7 px-12'>
-                <div className="p-4 font-bold">
-                    <h1 className="text-4xl text-black font-bold px-16">Você não está logado</h1>
-                </div>
-            </div>)}
-        </div>
+      <div className="flex flex-col">
+        <form onSubmit={handleSubmit(loginUser)}>
+          <div className="flex flex-col my-6">
+              <h2 className="text-3xl font-primary mx-auto text-primary font-bold py-3">Digite suas informções para continur usando o sistema</h2>
+          </div>
+          
+          <div className="flex flex-col mb-2"> 
+              <h1 className="text-black font-bold text-lg mx-auto mb-1">Digite seu nome</h1>
+              <input onChange={(event) => {setNome(event.target.value)}} className="py-3 px-2 border-2 border-black w-[700px] rounded-xl mx-auto mb-2" placeholder="Digite o seu Nome"/>
+              {errors.name && <span className="text-primary font-bold text-lg mx-auto mb-1">Preencha o campo nome</span>}
+          </div>
+          
+          <div className="flex flex-col mb-2"> 
+              <h1 className="text-black font-bold text-lg mx-auto mb-1">Digite sua idade</h1>
+              <input onChange={(event) => {setIdade(event.target.value)}} className="py-3 px-2 border-2 border-black w-[700px] rounded-xl mx-auto mb-2" placeholder="Digite a sua idade"/>
+              {errors.name && <span className="text-primary font-bold text-lg mx-auto mb-1">Preencha o campo CPF</span>}
+          </div>
+  
+          <div className="flex flex-col mb-2"> 
+              <h1 className="text-black font-bold text-lg mx-auto mb-1">Digite seu e-mail</h1>
+              <input onChange={(event) => {setEmail(event.target.value)}} className="py-3 px-2 border-2 border-black w-[700px] rounded-xl mx-auto mb-2" placeholder="Digite o seu Email"/>
+              {errors.name && <span className="text-primary font-bold text-lg mx-auto mb-1">Preencha o campo e-mail</span>}
+          </div>
+  
+          <div className="flex flex-col mb-2"> 
+              <h1 className="text-black font-bold text-lg mx-auto mb-1">Digite o seu RG</h1>
+              <input onChange={(event) => {setRg(event.target.value)}} className="py-3 px-2 border-2 border-black w-[700px] rounded-xl mx-auto mb-2" placeholder="Digite o seu RG"/>
+              {errors.name && <span className="text-primary font-bold text-lg mx-auto mb-1">Preencha o campo tipo sanguineo</span>}
+          </div>
+  
+          <div className="flex flex-col mb-2"> 
+              <h1 className="text-black font-bold text-lg mx-auto mb-1">Digite seu CPF</h1>
+              <input onChange={(event) => {setCpf(event.target.value)}} className="py-3 px-2 border-2 border-black w-[700px] rounded-xl mx-auto mb-2" placeholder="Digite o seu CPF"/>
+              {errors.name && <span className="text-primary font-bold text-lg mx-auto mb-1">Preencha o campo tipo sanguineo</span>}
+          </div>
+  
+          <div className="flex flex-col mb-2"> 
+              <h1 className="text-black font-bold text-lg mx-auto mb-1">Selecione seu Genero</h1>
+              <input onChange={(event) => {setGenero(event.target.value)}} className="py-3 px-2 border-2 border-black w-[700px] rounded-xl mx-auto mb-2" placeholder="Selecione o seu genero"/>
+              {errors.name && <span className="text-primary font-bold text-lg mx-auto mb-1">Preencha o campo tipo sanguineo</span>}
+          </div>        
+  
+          <div className="flex flex-col mb-2"> 
+              <h1 className="text-black font-bold text-lg mx-auto mb-1">Selecione seu tipo sanguíneo</h1>
+              <input onChange={(event) => {setTipo_sangue(event.target.value)}} className="py-3 px-2 border-2 border-black w-[700px] rounded-xl mx-auto mb-2" placeholder="Selecione o seu tipo sanguíneo"/>
+              {errors.name && <span className="text-primary font-bold text-lg mx-auto mb-1">Preencha o campo tipo sanguineo</span>}
+          </div>   
+  
+          <div className="flex mb-2 justify-center">
+              <input onClick={addDoador} className="border-2 border-black py-2 w-32 font-bold rounded-xl cursor-pointer mr-2 hover:bg-primary hover:border-tertiary" type="submit" />
+              <input className="border-2 border-black py-2 w-32 font-bold rounded-xl cursor-pointer ml-2 hover:bg-primary hover:border-tertiary" type="button" onClick={() => reset()} value="Limpar" />
+          </div>
+          
+        </form>
+      </div>
     );
 };
 
