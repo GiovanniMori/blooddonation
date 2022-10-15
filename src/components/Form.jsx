@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { AuthContextProvider, UserAuth } from "../contexts/AuthContext";
 import Axios from "axios"
 import { useState } from "react";
+import UserCard from "../components/User-card/userCard"
 
 const Form = () => {
 
@@ -91,6 +92,10 @@ const Form = () => {
           </div>
           
         </form>
+
+        <div>
+            <UserCard />    
+        </div> 
       </div>
     );
 };
