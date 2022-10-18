@@ -4,6 +4,7 @@ import { AuthContextProvider, UserAuth } from "../contexts/AuthContext";
 import Axios from "axios"
 import { useState } from "react";
 import UserCard from "../components/User-card/userCard"
+import ImportFile from "./ImportFIle";
 
 const Form = () => {
 
@@ -95,6 +96,10 @@ const Form = () => {
 
         <div>
             <UserCard />    
+        </div> 
+
+        <div>
+            <ImportFile />    
         </div> 
       </div>
     );

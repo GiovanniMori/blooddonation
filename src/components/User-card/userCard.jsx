@@ -20,7 +20,7 @@ const UserCard = () => {
       <h2 className="text-3xl font-bold mx-auto pt-6">Carteira de doação de sangue</h2>
       <div id="texts" className="flex flex-col px-6 pt-10"> 
         <label className="text-white text-2xl font-bold">{user.displayName}</label>
-        <label className="mt-4 text-white font-bold text-2xl">User Id</label>
+        <label className="mt-4 text-white font-bold text-2xl">{user.uid}</label>
       </div>
       <div id="logo" className="flex justify-between px-6 pt-8">
         <label className="text-xl font-bold mt-10">Cada doação importa</label>
