@@ -1,12 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContextProvider, UserAuth } from "../contexts/AuthContext";
 import Axios from "axios"
 import { useState } from "react";
 import UserCard from "../components/User-card/userCard"
 import ImportFile from "./ImportFIle";
+import { useNavigate } from "react-router-dom";
 
 const Form = () => {
+    const navigate = useNavigate();
+    const { user } = UserAuth();
+    useEffect(() => {
+        if (!user) {
+            return navigate("/login")
+        }
+    })
 
    const [nome, setNome] = useState('')
    const [idade, setIdade] = useState(0)
@@ -26,7 +34,7 @@ const Form = () => {
         genero: genero,
         tipo_sangue: tipo_sangue
     }).then(() => {'Success'})
-   }
+   } 
 
     const {
       register,
@@ -37,7 +45,7 @@ const Form = () => {
    } = useForm();
   
   const  loginUser  =  data  =>  console.log(data);
-  
+ 
     return (
       <div className="flex flex-col">
         <form onSubmit={handleSubmit(loginUser)}>

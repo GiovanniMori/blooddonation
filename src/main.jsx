@@ -9,16 +9,12 @@ import {
 
 import Home from "../src/components/Home";
 import Form from "../src/components/Form";
-
 import ErrorPage from "./error-page";
 import AboutDonate from "./components/AboutDonate";
 import Navbar from "./components/Navbar";
-import SignUp from "./components/SignUp";
-import LogIn from "./components/LogIn";
-import { AuthContextProvider, UserAuth } from "./contexts/AuthContext";
+import { AuthContextProvider } from "./contexts/AuthContext";
 import Modallog from "./components/modal/Modallog";
 import ModalReg from "./components/modal/ModalReg";
-import PageHeader from "./components/User/PageHeader";
 import UserPage from "./components/User/UserPage";
 
 const router = createBrowserRouter([
@@ -26,15 +22,6 @@ const router = createBrowserRouter([
     path: "/",
     element: <Navbar />,
     errorElement: <ErrorPage />,
-    /*loader: async ({ request, params }) => {
-            return fetch(
-                `/fake/api/teams/${params.teamId}.json`,
-                { signal: request.signal }
-            );
-        },
-        action: async ({ request }) => {
-            return updateFakeTeam(await request.formData());
-        },*/
     children: [
       {
         path: "/",

@@ -1,6 +1,6 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../services/firebase";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SignInGoogle from "./SignInGoogle"
 import { Link, redirect, useNavigate } from "react-router-dom";
 import { UserAuth } from "../contexts/AuthContext";
@@ -9,8 +9,8 @@ import { UserAuth } from "../contexts/AuthContext";
 export default function SignUp() {
     const [registerEmail, setRegisterEmail] = useState("");
     const [registerPassword, setRegisterPassword] = useState("");
-    const navigate = useNavigate();
     const { createUser } = UserAuth();
+    const navigate = useNavigate();
     const { user } = UserAuth();
 
     useEffect(() => {
