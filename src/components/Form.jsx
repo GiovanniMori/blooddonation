@@ -101,11 +101,11 @@ const Form = () => {
           </div>
           
         </form>
-
         <div>
             <UserCard />    
         </div> 
 
+      
         <div>
             <ImportFile />    
         </div> 

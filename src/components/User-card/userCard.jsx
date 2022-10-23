@@ -14,6 +14,9 @@ const UserCard = () => {
       "Success";
     });
   };
+  if (!user){
+    return
+  }
 
   const userId = toString(getUserId);
   return (
