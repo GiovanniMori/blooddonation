@@ -1,6 +1,6 @@
 import { React, useState, useContext } from "react";
 import { Link, Navigate, Outlet, useNavigate } from "react-router-dom";
-import Logo from "../../dist/blood-donation.png";
+import Logo from "../assets/blood-donation.png";
 import { AuthContextProvider, UserAuth } from "../contexts/AuthContext";
 import Modallog from "./modal/Modallog";
 import ModalReg from "./modal/ModalReg";
@@ -8,7 +8,6 @@ import ModalReg from "./modal/ModalReg";
 
 const Navbar = () => {
   const { user, logout } = UserAuth();
-
   const navigate = useNavigate();
 
   const handleLogout = async (e) => {
@@ -40,26 +39,25 @@ const Navbar = () => {
             <Link to="/form" relative="path">Form</Link>
           </li>
           {user ?
-            (<div className="p-4 font-bold">
+            (<li className="p-4 font-bold">
               {user.displayName}
               <li>
                 <button onClick={handleLogout}>Sair</button>
               </li>
-            </div>) : (<div>
-              <ul className="flex px-16">
-                <li className="p-4 font-bold">
-                  <Modallog />
-                </li>
-                <li className="p-4 font-bold">
-                  <ModalReg />
-                </li>
-              </ul>
-            </div>)
+            </li>) : (<li>
+              <li className="p-4 font-bold">
+                <Modallog />
+              </li>
+              <li className="p-4 font-bold">
+                <ModalReg />
+              </li>
+            </li>
+            )
           }
         </ul>
-      </div>
+      </div >
       <Outlet />
-    </div>
+    </div >
   );
 };
 
