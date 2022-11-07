@@ -1,10 +1,10 @@
 import {React, useState} from "react";
 import { motion } from "framer-motion";
-import Backdrop from "./Backdrop";
-import Signin from '../LogIn'
+import Backdrop from "../../modal/Backdrop";
 import {AiOutlineClose} from "react-icons/ai";
-import { Link } from "react-router-dom";
-import {getSudeste} from "../database/sudeste"
+import { Link, redirect } from "react-router-dom";
+import {GetSudeste} from "../database/sudeste"
+
 
 const dropIn = {
   hidden: {
@@ -29,7 +29,7 @@ const dropIn = {
 
 
 
-const sudesteModal = () => {
+const SudesteModal = () => {
     const [modalOpen, setModalOpen]= useState(true)
     const close = () => setModalOpen(false)
     const open = () => setModalOpen(true)
@@ -42,7 +42,7 @@ const sudesteModal = () => {
             <div className="flex flex-col">
               <motion.div
                 onClick={(e) => e.stopPropagation()}
-                className="rounded-xl bg-primary pl-10 pr-4 pt-5 pb-6 border-black border-4"
+                className="rounded-xl bg-white pl-10 pr-4 pt-10 w-2/4 mx-auto border-black border-4"
                 variants={dropIn}
                 initial="hidden"
                 animate="visible" 
@@ -51,7 +51,8 @@ const sudesteModal = () => {
                 <Link to="/">
                     <AiOutlineClose className="h-7 w-7 float-right" onClick={close}/>
                 </Link>
-                <h1>{getSudeste}</h1>
+                <h1 className=" text-primary text-3xl font-bold py-3 px-3 inline-block mx-auto text-center">Esses são os hemocentros da sua região</h1>
+                <div className="mx-auto py-16">{<GetSudeste />}</div>
               </motion.div>
             </div>
           </Backdrop>
@@ -60,4 +61,4 @@ const sudesteModal = () => {
   );
 };
 
-export default sudesteModal;
+export default SudesteModal;

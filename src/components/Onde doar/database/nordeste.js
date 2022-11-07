@@ -56,7 +56,12 @@ let nordeste = [
 
 export const getNordeste = () => {
     for (let index = 0; index < nordeste.length; index++) {
-        const element = nordeste[index];
-        console.log('\n' + JSON.stringify(nordeste[index]))
+        const element = JSON.stringify(nordeste[index]);
+        JSON.parse(element, (key,value)=>{
+          if ( typeof value == 'string'){
+            return value.toUpperCase();
+          }
+        })
+        console.log('\n' + element)
     }
 }
