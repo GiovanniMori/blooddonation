@@ -14,12 +14,6 @@ const db = mysql.createConnection({
     database: 'blood_donation_db'
 })
 
-app.get("/cupom/:id", (req, res) => {
-  const cupom = await db.query(
-    `SELECT * FROM 'cupom' WHERE id = '${id}'`
-console.log(nome)
-})
-
 
 app.post('/add', (req, res) => {
     console.log(req.body)
