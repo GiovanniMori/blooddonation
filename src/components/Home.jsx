@@ -2,12 +2,13 @@ import React from "react";
 import Hero from './Hero';
 import AboutDonate from './AboutDonate';
 import Requirements from './Requirements';
+import OndeDoar from "./Onde doar/OndeDoar";
 
 const Home = () => {
   return (
     <div>
       <Hero />
-      <AboutDonate />
+      <OndeDoar />
       <Requirements />
     </div>
   );

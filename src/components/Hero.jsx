@@ -24,8 +24,8 @@ const Hero = () => {
     };
   }, []);
     return (
-    <div className="w-full text-center flex pt-8 flex-col bg-quartenary mx-auto justify-center">
-      <h1 className="text-5xl md:py-6 text-primary font-bold">
+    <div className="w-full text-center flex flex-col py-16 bg-primary mx-auto justify-center">
+      <h1 className="text-5xl md:py-6 text-white font-bold">
         Doe Sangue, Salve uma vida
       </h1>
       <h1 className="text-3xl md:py-6 text-white font-bold">
@@ -38,7 +38,7 @@ const Hero = () => {
         <span className='text-4xl text-tertiary font bold px-4' ref={el}></span>
         
       </div>
-      <Link to="/about" className="bg-primary w-[200px] rounded-md font-medium text-white text-center px-2 py-4 mx-auto my-6">
+      <Link to="/aboutdonate" className="bg-primary w-[200px] border-4 border-white mt-16 border-opacity-70 text-3xl py-6 rounded-md font-medium text-white text-center px-2 mx-auto my-6">
         Saiba mais
       </Link>
     </div>

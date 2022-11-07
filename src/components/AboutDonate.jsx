@@ -1,4 +1,7 @@
 import React from "react";
+
+import DataBlood from "../assets/data-blood.jpg";
+import Requirements from "./Requirements";
 import loader from '../assets/loader.json'
 import Lottie from "lottie-react";
 
@@ -33,7 +36,9 @@ const AboutDonate = () => {
       <h2 className="text-quartenary font-bold text-4xl mx-auto text-center py-8">
         Precisamos da sua ajuda. DOE
       </h2>
+      <Requirements />
     </div>
+    
   );
 };
 
