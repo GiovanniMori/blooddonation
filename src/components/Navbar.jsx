@@ -36,7 +36,7 @@ const Navbar = () => {
             <Link to="/aboutdonate" relative="path">Sobre</Link>
           </li>
           <li className="p-4 font-bold">
-            <Link to="/form" relative="path">Form</Link>
+            <Link to="/user" relative="path">user</Link>
           </li>
           {user ?
             (<li className="p-4 font-bold">

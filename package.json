@@ -9,21 +9,27 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.4",
+    "@emotion/style": "^0.8.0",
     "@headlessui/react": "^1.7.2",
+    "axios": "^1.1.2",
+    "cors": "^2.8.5",
     "dotenv": "^16.0.3",
+    "express": "^4.18.2",
     "firebase": "^9.9.4",
     "firebase-admin": "^11.1.0",
     "framer-motion": "^7.5.3",
     "localforage": "^1.10.0",
     "lottie-react": "^2.3.1",
     "match-sorter": "^6.3.1",
+    "mysql": "^2.18.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.36.0",
     "react-icons": "^4.4.0",
     "react-router-dom": "^6.4.2",
-    "react-typed": "^1.2.0",
-    "sort-by": "^1.2.0"
+    "sort-by": "^1.2.0",
+    "typed.js": "^2.0.12"
   },
   "devDependencies": {
     "@types/react": "^18.0.17",

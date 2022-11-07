@@ -11,6 +11,8 @@ module.exports = {
         'secondary': '#FF0000',
         'tertiary': '#CD5C5C',
         'quartenary': '#F08080'
+      },backgroundImage: {
+        'card': "url('/src/assets/card.png)"
       }
     },
   },
