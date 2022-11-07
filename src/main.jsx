@@ -42,14 +42,6 @@ const router = createBrowserRouter([
       },
     ],
   },
-  {
-    path: "login",
-    element: <LogIn />,
-  },
-  {
-    path: "cadastre",
-    element: <SignUp />,
-  },
 ]);
 
 const teste = createBrowserRouter(

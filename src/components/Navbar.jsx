@@ -5,7 +5,6 @@ import { AuthContextProvider, UserAuth } from "../contexts/AuthContext";
 import Modallog from "./modal/Modallog";
 import ModalReg from "./modal/ModalReg";
 
-
 const Navbar = () => {
   const { user, logout } = UserAuth();
   const navigate = useNavigate();
@@ -13,51 +12,59 @@ const Navbar = () => {
   const handleLogout = async (e) => {
     e.preventDefault();
     try {
-      await logout()
-      navigate('/')
+      await logout();
+      navigate("/");
     } catch (e) {
-      console.log(e.message)
+      console.log(e.message);
     }
   };
 
-
-
   return (
     <div>
-      <div className="flex justify-between items-center w-full h-24 px-7 bg-gradient-to-r from-primary to-red-900 text-white"
-        id="navbar-container">
+      <div
+        className="flex justify-between items-center w-full h-24 px-7 bg-gradient-to-r from-primary to-red-900 text-white"
+        id="navbar-container"
+      >
         <Link to="/">
           <img src={Logo} className="w-16" />
         </Link>
         <ul className="flex px-16">
           <li className="p-4 font-bold">
-            <Link to="/" relative="path">Início</Link></li>
-          <li className="p-4 font-bold">
-            <Link to="/aboutdonate" relative="path">Sobre</Link>
+            <Link to="/" relative="path">
+              Início
+            </Link>
           </li>
           <li className="p-4 font-bold">
-            <Link to="/user" relative="path">user</Link>
+            <Link to="/aboutdonate" relative="path">
+              Sobre
+            </Link>
           </li>
-          {user ?
-            (<li className="p-4 font-bold">
+          <li className="p-4 font-bold">
+            <Link to="/user" relative="path">
+              user
+            </Link>
+          </li>
+          {user ? (
+            <ul className="p-4 font-bold">
               {user.displayName}
               <li>
                 <button onClick={handleLogout}>Sair</button>
               </li>
-            </li>) : (<li>
+            </ul>
+          ) : (
+            <ul>
               <li className="p-4 font-bold">
                 <Modallog />
               </li>
               <li className="p-4 font-bold">
                 <ModalReg />
               </li>
-            </li>
-            )
-          }
+            </ul>
+          )}
         </ul>
-      </div >
+      </div>
       <Outlet />
-    </div >
+    </div>
   );
 };
 
