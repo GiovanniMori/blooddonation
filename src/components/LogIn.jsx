@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { UserAuth } from '../contexts/AuthContext';
 import SignInGoogle from './SignInGoogle';
+
 
 
 const Signin = () => {
@@ -11,10 +12,11 @@ const Signin = () => {
     const { signIn } = UserAuth();
     const { user } = UserAuth();
 
-    if (user) {
-        return navigate('/')
-    }
-
+    useEffect(() => {
+        if (user) {
+            navigate("/")
+        }
+    })
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -31,7 +33,7 @@ const Signin = () => {
                 <div className="mt-6 mb-3 py-2">
                     <SignInGoogle />
                 </div>
-                
+
                 <h1 className="mb-3 text-lg text-black font-bold">
                     ou
                 </h1>
@@ -51,7 +53,7 @@ const Signin = () => {
                         onChange={(event) => {
                             setPassword(event.target.value);
                         }} >
-                        
+
                     </input>
                 </div>
                 <button
@@ -65,8 +67,8 @@ const Signin = () => {
                     <p className='text-black text-lg'>Não tem conta ainda?</p>
                 </div>
                 <Link to='/cadastre' className='underline text-white text-xl'>
-                        Cadastre
-                    </Link>
+                    Cadastre
+                </Link>
             </div>
         </div>
     );

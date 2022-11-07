@@ -2,7 +2,7 @@ import { GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from "firebas
 import { auth } from "../services/firebase";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {FcGoogle} from "react-icons/fc"
+import { FcGoogle } from "react-icons/fc"
 
 export default function SignInGoogle() {
   const provider = new GoogleAuthProvider();
@@ -19,7 +19,7 @@ export default function SignInGoogle() {
   };
   return (
     <div>
-      <button className="text-black font-bold text-sm mt-3 text- mx-auto rounded-xl py-2 px-6 border-2 border-black bg-white flex" onClick={(handleLogin)}><FcGoogle className="mr-2 h-5 w-6"/>Continuar com o Google</button>
+      <button className="text-black font-bold text-sm mt-3   mx-auto rounded-xl py-2 px-6 border-2 border-black bg-white flex" onClick={(handleLogin)}><FcGoogle className="mr-2 h-5 w-6" />Continuar com o Google</button>
     </div>
   );
 

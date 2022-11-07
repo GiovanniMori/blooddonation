@@ -1,6 +1,9 @@
 import React from "react";
+
 import DataBlood from "../assets/data-blood.jpg";
 import Requirements from "./Requirements";
+import loader from '../assets/loader.json'
+import Lottie from "lottie-react";
 
 const AboutDonate = () => {
   return (
@@ -9,6 +12,7 @@ const AboutDonate = () => {
         <h1 className="text-gray-900 font-bold text-4xl mx-auto text-center py-4">
           Sobre a doação de sangue
         </h1>
+        <Lottie className='w-60' animationData={loader} loop={true} />
         <p className='text-primary text-xl font-bold'>
           Doar sangue é um processo simples, rápido e totalmente seguro. Onde em
           muitos casos, a transfusão de sangue é a única esperança de vida para

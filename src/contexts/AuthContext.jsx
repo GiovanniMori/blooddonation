@@ -6,7 +6,7 @@ import {
     onAuthStateChanged,
 } from 'firebase/auth';
 import { auth } from '../services/firebase';
-import { useNavigate } from 'react-router-dom';
+
 
 const UserContext = createContext();
 
@@ -26,12 +26,17 @@ export const AuthContextProvider = ({ children }) => {
         return console.log("Saiu com sucesso")
     }
 
+
+
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             console.log(currentUser);
             setUser(currentUser);
         });
+        
+
         return () => {
+            
             unsubscribe();
         };
     }, []);
