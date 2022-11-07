@@ -21,9 +21,15 @@ let centro = [
     }
 ]
 
-export const getCentro = () => {
-    for (let index = 0; index < centro.length; index++) {
-        const element = centro[index];
-        console.log('\n' + JSON.stringify(centro[index]))
-    }
+export const GetCentro = () => {
+    const values = Object.values(centro)
+    console.log(values)
+
+    return (
+        <div>
+            <div className="text-2xl font-bold flex flex-col mb-3">{values.map(value => <p className="mb-5">{[value.Nome + '\n' , value.Endereco, value.Telefone]}</p>)}</div>
+
+        </div>
+        
+    )
 }

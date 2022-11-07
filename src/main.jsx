@@ -17,6 +17,10 @@ import Modallog from "./components/modal/Modallog";
 import ModalReg from "./components/modal/ModalReg";
 import UserPage from "./components/User/UserPage";
 import SudesteModal from "./components/Onde doar/modais/sudesteModal"
+import SulModal from "./components/Onde doar/modais/sulModal"
+import CentroModal from "./components/Onde doar/modais/centroModal"
+import NorteModal from "./components/Onde doar/modais/norteModal";
+import NordesteModal from "./components/Onde doar/modais/nordesteModal";
 
 const router = createBrowserRouter([
   {
@@ -57,6 +61,26 @@ const router = createBrowserRouter([
       {
         path: "sudeste",
         element: <SudesteModal />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "sul",
+        element: <SulModal />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "centro",
+        element: <CentroModal />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "norte",
+        element: <NorteModal />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "nordeste",
+        element: <NordesteModal />,
         errorElement: <ErrorPage />,
       },
     ],

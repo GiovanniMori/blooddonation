@@ -54,14 +54,15 @@ let nordeste = [
   },
 ];
 
-export const getNordeste = () => {
-    for (let index = 0; index < nordeste.length; index++) {
-        const element = JSON.stringify(nordeste[index]);
-        JSON.parse(element, (key,value)=>{
-          if ( typeof value == 'string'){
-            return value.toUpperCase();
-          }
-        })
-        console.log('\n' + element)
-    }
+export const GetNordeste = () => {
+  const values = Object.values(nordeste)
+  console.log(values)
+
+  return (
+      <div>
+          <div className="text-2xl font-bold flex flex-col mb-3">{values.map(value => <p className="mb-5">{[value.Nome + '\n' , value.Endereco, value.Telefone]}</p>)}</div>
+
+      </div>
+      
+  )
 }

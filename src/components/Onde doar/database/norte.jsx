@@ -40,9 +40,15 @@ let norte = [
   },
 ];
 
-export const getNorte = () => {
-    for (let index = 0; index < norte.length; index++) {
-        const element = norte[index];
-        console.log('\n' + JSON.stringify(norte[index]))
-    }
+export const GetNorte = () => {
+  const values = Object.values(norte)
+  console.log(values)
+
+  return (
+      <div>
+          <div className="text-2xl font-bold flex flex-col mb-3">{values.map(value => <p className="mb-5">{[value.Nome + '\n' , value.Endereco, value.Telefone]}</p>)}</div>
+
+      </div>
+      
+  )
 }
