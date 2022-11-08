@@ -10,7 +10,7 @@
     "nodemon": "^2.0.20"
   },
   "scripts": {
-    "dev": "nodemon index.js"
+    "start": "nodemon index.js"
   },
   "repository": {
     "type": "git",
