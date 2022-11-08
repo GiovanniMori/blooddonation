@@ -24,6 +24,7 @@ app.post('/add', (req, res) => {
     const cpf = req.body.cpf
     const genero  = req.body.genero
     const tipo_sangue = req.body.tipo_sangue
+    
 
     db.query(
         'INSERT INTO doador (nome, idade, email, rg, cpf, genero, tipo_sangue) VALUES (?, ?, ?, ?, ?, ?, ?)',
@@ -36,5 +37,5 @@ app.post('/add', (req, res) => {
 })
 
 app.listen(3001, () => {
-    console.log('Rodando servidor')
+    console.log('Rodando servidor na porta 3001')
 })
