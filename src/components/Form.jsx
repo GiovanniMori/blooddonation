@@ -1,17 +1,14 @@
 import React, { useEffect } from "react";
-import { useForm } from "react-hook-form";
-import { AuthContextProvider, UserAuth } from "../contexts/AuthContext";
+import { UserAuth } from "../contexts/AuthContext";
 import Axios from "axios";
 import { useState } from "react";
 import UserCard from "../components/User-card/userCard";
 import { useNavigate } from "react-router-dom";
 import Navbar from "./Navbar";
-import { getFirestore } from "firebase/firestore";
 
 const Form = () => {
   const navigate = useNavigate();
   const { user } = UserAuth();
-  console.log("entrou");
   const [nome, setNome] = useState("");
   const [idade, setIdade] = useState(0);
   const [email, setEmail] = useState("");
