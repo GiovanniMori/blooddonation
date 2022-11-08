@@ -1,7 +1,7 @@
 import { React, useState } from "react";
 import { motion } from "framer-motion";
 import Backdrop from "./Backdrop";
-import Signin from '../LogIn'
+import Signin from "../LogIn";
 import { AiOutlineClose } from "react-icons/ai";
 
 const dropIn = {
@@ -25,17 +25,15 @@ const dropIn = {
   },
 };
 
-
-
 const Modallog = () => {
-  const [modalOpen, setModalOpen] = useState(false)
-  const close = () => setModalOpen(false)
-  const open = () => setModalOpen(true)
-
+  const [modalOpen, setModalOpen] = useState(false);
+  const close = () => setModalOpen(false);
+  const open = () => setModalOpen(true);
 
   return (
     <div>
-      {modalOpen ? (
+      <button onClick={open}>Entrar</button>
+      {modalOpen && (
         <Backdrop onClick={() => (modalOpen ? close() : open())}>
           <div className="flex flex-col">
             <motion.div
@@ -51,7 +49,7 @@ const Modallog = () => {
             </motion.div>
           </div>
         </Backdrop>
-      ) : (<div>Entrar</div>)}
+      )}
     </div>
   );
 };
