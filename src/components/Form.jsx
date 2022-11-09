@@ -5,6 +5,8 @@ import { useState } from "react";
 import UserCard from "../components/User-card/userCard";
 import { useNavigate } from "react-router-dom";
 import Navbar from "./Navbar";
+import loader from "../assets/loader.json";
+import Lottie from "lottie-react";
 
 const Form = () => {
   const navigate = useNavigate();
@@ -167,7 +169,7 @@ const Form = () => {
 
         <div className="flex mb-2 justify-center">
           <input
-            onClick={addDoador}
+            onClick={(addDoador, loader)}
             className="border-2 border-black py-2 w-32 font-bold rounded-xl cursor-pointer mr-2 hover:bg-primary hover:border-tertiary"
             type="submit"
           />

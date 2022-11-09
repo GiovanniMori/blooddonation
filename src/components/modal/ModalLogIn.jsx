@@ -1,7 +1,7 @@
 import { React, useState } from "react";
 import { motion } from "framer-motion";
 import Backdrop from "./Backdrop";
-import Signin from "../LogIn";
+import Signin from "../auth/LogIn";
 import { AiOutlineClose } from "react-icons/ai";
 
 const dropIn = {

@@ -5,7 +5,6 @@ import Logo from "../assets/blood-donation.png";
 import { AuthContextProvider, UserAuth } from "../contexts/AuthContext";
 import ModalLogIn from "./modal/ModalLogIn";
 import ModalSignUp from "./modal/ModalSignUp";
-import SignInGoogle from "./SignInGoogle";
 
 const Navbar = () => {
   const { user, logout } = UserAuth();

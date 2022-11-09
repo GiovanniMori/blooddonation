@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import Backdrop from "./Backdrop";
 import { AiOutlineClose } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import SignUp from "../SignUp";
+import SignUp from "../auth/SignUp";
 
 const dropIn = {
   hidden: {
