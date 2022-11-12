@@ -1,9 +1,10 @@
 import { React, useState, useContext } from "react";
 import { Link, Navigate, Outlet, useNavigate } from "react-router-dom";
 import Logo from "../assets/blood-donation.png";
+
 import { AuthContextProvider, UserAuth } from "../contexts/AuthContext";
-import Modallog from "./modal/Modallog";
-import ModalReg from "./modal/ModalReg";
+import ModalLogIn from "./modal/ModalLogIn";
+import ModalSignUp from "./modal/ModalSignUp";
 
 const Navbar = () => {
   const { user, logout } = UserAuth();
@@ -20,50 +21,45 @@ const Navbar = () => {
   };
 
   return (
-    <div>
-      <div
-        className="flex justify-between items-center w-full h-24 px-7 bg-gradient-to-r from-primary to-red-900 text-white"
-        id="navbar-container"
-      >
-        <Link to="/">
-          <img src={Logo} className="w-16" />
-        </Link>
-        <ul className="flex px-16">
-          <li className="p-4 font-bold">
+    <div className="pt-6 pl-8 pr-8 flex justify-between text-xl text-weigh font-medium h-20 items-center overflow-hidden">
+      <div className="flex gap-5">
+        <img src={Logo} width="40px" />
+        <h1>Blood Donation</h1>
+      </div>
+      <div>
+        <ul className="flex gap-20 ">
+          <li>
             <Link to="/" relative="path">
               Início
             </Link>
           </li>
-          <li className="p-4 font-bold">
-            <Link to="/aboutdonate" relative="path">
+          <li>
+            <Link to="/sobre" relative="path">
               Sobre
             </Link>
           </li>
-          <li className="p-4 font-bold">
-            <Link to="/user" relative="path">
-              user
+          <li>
+            <Link to="/servicos" relative="path">
+              Serviços
             </Link>
           </li>
           {user ? (
-            <ul className="p-4 font-bold">
-              {user.displayName}
-              <li>
-                <button onClick={handleLogout}>Sair</button>
-              </li>
-            </ul>
+            <>
+              <li className="text-red-500">{user.displayName}</li>
+              <button onClick={handleLogout}>Sair</button>
+            </>
           ) : (
-            <ul>
-              <li className="p-4 font-bold">
-                <Modallog />
+            <>
+              <li>
+                <ModalSignUp />
               </li>
-              <li className="p-4 font-bold">
-                <ModalReg />
+              <li>
+                <ModalLogIn />
               </li>
-            </ul>
+            </>
           )}
         </ul>
       </div>
-      <Outlet />
     </div>
   );
 };

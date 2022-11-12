@@ -1,21 +1,16 @@
 import React, { useEffect } from "react";
-import { useForm } from "react-hook-form";
-import { AuthContextProvider, UserAuth } from "../contexts/AuthContext";
+import { UserAuth } from "../contexts/AuthContext";
 import Axios from "axios";
 import { useState } from "react";
 import UserCard from "../components/User-card/userCard";
-import ImportFile from "./ImportFIle";
 import { useNavigate } from "react-router-dom";
+import Navbar from "./Navbar";
+import loader from "../assets/loader.json";
+import Lottie from "lottie-react";
 
 const Form = () => {
   const navigate = useNavigate();
   const { user } = UserAuth();
-  useEffect(() => {
-    if (!user) {
-      return navigate("/login");
-    }
-  });
-
   const [nome, setNome] = useState("");
   const [idade, setIdade] = useState(0);
   const [email, setEmail] = useState("");
@@ -25,7 +20,7 @@ const Form = () => {
   const [tipo_sangue, setTipo_sangue] = useState("");
 
   const addDoador = () => {
-    Axios.post("http://localhost:3001/add", {
+    Axios.post("https://server-blooddonation.vercel.app/add", {
       nome: nome,
       idade: idade,
       email: email,
@@ -34,42 +29,25 @@ const Form = () => {
       genero: genero,
       tipo_sangue: tipo_sangue,
     }).then(() => {
-      "Success";
+      console.log(`Dados Enviados com sucesso, nome: ${nome}`);
     });
   };
-
-  const [name, setName] = useState("");
-
-  const db = getFirestore(app);
-  const userCollection = collection(db, "user");
-
-  async function criarUser() {
-    const user = await addDoc(userCollection, {
-      name,
-      email,
-    });
-  }
 
   useEffect(() => {
     if (!user) {
       navigate("/login");
     }
-    const getUsers = async () => {
-      const data = await getDocs(userCollection);
-      console.log(data);
-    };
-    getUsers();
   });
 
   return (
-    <div className="flex flex-col">
-      <form onSubmit={handleSubmit(loginUser)}>
+    <>
+      <Navbar />
+      <div className="flex flex-col">
         <div className="flex flex-col my-6">
           <h2 className="text-3xl font-primary mx-auto text-primary font-bold py-3">
             Digite suas informções para continur usando o sistema
           </h2>
         </div>
-
         <div className="flex flex-col mb-2">
           <h1 className="text-black font-bold text-lg mx-auto mb-1">
             Digite seu nome
@@ -81,11 +59,10 @@ const Form = () => {
             className="py-3 px-2 border-2 border-black w-[700px] rounded-xl mx-auto mb-2"
             placeholder="Digite o seu Nome"
           />
-          {errors.name && (
-            <span className="text-primary font-bold text-lg mx-auto mb-1">
-              Preencha o campo nome
-            </span>
-          )}
+
+          <span className="text-primary font-bold text-lg mx-auto mb-1">
+            Preencha o campo nome
+          </span>
         </div>
 
         <div className="flex flex-col mb-2">
@@ -99,11 +76,10 @@ const Form = () => {
             className="py-3 px-2 border-2 border-black w-[700px] rounded-xl mx-auto mb-2"
             placeholder="Digite a sua idade"
           />
-          {errors.name && (
-            <span className="text-primary font-bold text-lg mx-auto mb-1">
-              Preencha o campo CPF
-            </span>
-          )}
+
+          <span className="text-primary font-bold text-lg mx-auto mb-1">
+            Preencha o campo CPF
+          </span>
         </div>
 
         <div className="flex flex-col mb-2">
@@ -117,11 +93,10 @@ const Form = () => {
             className="py-3 px-2 border-2 border-black w-[700px] rounded-xl mx-auto mb-2"
             placeholder="Digite o seu Email"
           />
-          {errors.name && (
-            <span className="text-primary font-bold text-lg mx-auto mb-1">
-              Preencha o campo e-mail
-            </span>
-          )}
+
+          <span className="text-primary font-bold text-lg mx-auto mb-1">
+            Preencha o campo e-mail
+          </span>
         </div>
 
         <div className="flex flex-col mb-2">
@@ -135,11 +110,10 @@ const Form = () => {
             className="py-3 px-2 border-2 border-black w-[700px] rounded-xl mx-auto mb-2"
             placeholder="Digite o seu RG"
           />
-          {errors.name && (
-            <span className="text-primary font-bold text-lg mx-auto mb-1">
-              Preencha o campo tipo sanguineo
-            </span>
-          )}
+
+          <span className="text-primary font-bold text-lg mx-auto mb-1">
+            Preencha o campo tipo sanguineo
+          </span>
         </div>
 
         <div className="flex flex-col mb-2">
@@ -153,11 +127,10 @@ const Form = () => {
             className="py-3 px-2 border-2 border-black w-[700px] rounded-xl mx-auto mb-2"
             placeholder="Digite o seu CPF"
           />
-          {errors.name && (
-            <span className="text-primary font-bold text-lg mx-auto mb-1">
-              Preencha o campo tipo sanguineo
-            </span>
-          )}
+
+          <span className="text-primary font-bold text-lg mx-auto mb-1">
+            Preencha o campo tipo sanguineo
+          </span>
         </div>
 
         <div className="flex flex-col mb-2">
@@ -171,11 +144,10 @@ const Form = () => {
             className="py-3 px-2 border-2 border-black w-[700px] rounded-xl mx-auto mb-2"
             placeholder="Selecione o seu genero"
           />
-          {errors.name && (
-            <span className="text-primary font-bold text-lg mx-auto mb-1">
-              Preencha o campo tipo sanguineo
-            </span>
-          )}
+
+          <span className="text-primary font-bold text-lg mx-auto mb-1">
+            Preencha o campo tipo sanguineo
+          </span>
         </div>
 
         <div className="flex flex-col mb-2">
@@ -189,16 +161,15 @@ const Form = () => {
             className="py-3 px-2 border-2 border-black w-[700px] rounded-xl mx-auto mb-2"
             placeholder="Selecione o seu tipo sanguíneo"
           />
-          {errors.name && (
-            <span className="text-primary font-bold text-lg mx-auto mb-1">
-              Preencha o campo tipo sanguineo
-            </span>
-          )}
+
+          <span className="text-primary font-bold text-lg mx-auto mb-1">
+            Preencha o campo tipo sanguineo
+          </span>
         </div>
 
         <div className="flex mb-2 justify-center">
           <input
-            onClick={addDoador}
+            onClick={(addDoador, loader)}
             className="border-2 border-black py-2 w-32 font-bold rounded-xl cursor-pointer mr-2 hover:bg-primary hover:border-tertiary"
             type="submit"
           />
@@ -209,11 +180,12 @@ const Form = () => {
             value="Limpar"
           />
         </div>
-      </form>
-      <div>
-        <UserCard />
+
+        <div>
+          <UserCard />
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

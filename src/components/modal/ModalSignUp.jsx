@@ -1,8 +1,9 @@
 import { React, useState } from "react";
 import { motion } from "framer-motion";
 import Backdrop from "./Backdrop";
-import Signin from '../LogIn'
 import { AiOutlineClose } from "react-icons/ai";
+import { Link } from "react-router-dom";
+import SignUp from "../auth/SignUp";
 
 const dropIn = {
   hidden: {
@@ -25,17 +26,15 @@ const dropIn = {
   },
 };
 
-
-
-const Modallog = () => {
-  const [modalOpen, setModalOpen] = useState(false)
-  const close = () => setModalOpen(false)
-  const open = () => setModalOpen(true)
-
+function ModalReg() {
+  const [modalOpen, setModalOpen] = useState(false);
+  const close = () => setModalOpen(false);
+  const open = () => setModalOpen(true);
 
   return (
     <div>
-      {modalOpen ? (
+      <button onClick={open}>Cadastre-se</button>
+      {modalOpen && (
         <Backdrop onClick={() => (modalOpen ? close() : open())}>
           <div className="flex flex-col">
             <motion.div
@@ -46,14 +45,19 @@ const Modallog = () => {
               animate="visible"
               exit="exit"
             >
-              <AiOutlineClose className="h-7 w-7 float-right" onClick={close} />
-              <Signin />
+              <Link to="/">
+                <AiOutlineClose
+                  className="h-7 w-7 float-right"
+                  onClick={close}
+                />
+              </Link>
+              <SignUp />
             </motion.div>
           </div>
         </Backdrop>
-      ) : (<div>Entrar</div>)}
+      )}
     </div>
   );
-};
+}
 
-export default Modallog;
+export default ModalReg;

@@ -2,21 +2,21 @@ import { React, useState } from "react";
 import Axios from "axios";
 import { useForm } from "react-hook-form";
 import { data } from "autoprefixer";
+import { validateTestPhoneNumbers } from "firebase-admin/lib/auth/auth-config";
 
-const ImportFile = () => {
+const validateTestPhoneNumbers = () => {
   const [cupomID, setCupomID] = useState("");
 
-  function getId (id){
-    Axios.get(`http://3.83.103.196:3001/cupom/${id}`
-       ) .then(function (response) {
+  function getId(id) {
+    Axios.get(`http://3.83.103.196:3001/cupom/${id}`)
+      .then(function (response) {
         console.log("sucesso", response);
       })
       .catch(function () {
         // handle error
-        console.log( "erro ") ;
-      })
-    
-  };
+        console.log("erro ");
+      });
+  }
 
   const {
     register,
@@ -48,4 +48,4 @@ const ImportFile = () => {
   );
 };
 
-export default ImportFile;
+export default validateTestPhoneNumbers;
