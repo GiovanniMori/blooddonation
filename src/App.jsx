@@ -13,8 +13,6 @@ import Hero from "./components/Hero";
 import Form from "./components/Form";
 import SignUp from "./components/auth/SignUp";
 import LogIn from "./components/auth/LogIn";
-import loader from "./assets/loader.json";
-import Lottie from "lottie-react";
 
 const router = createBrowserRouter([
   {
