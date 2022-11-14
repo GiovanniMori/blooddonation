@@ -11,8 +11,8 @@ import ErrorPage from "./error-page";
 import HomePage from "./pages/HomePage";
 import Hero from "./components/Hero";
 import Form from "./components/Form";
-import SignUp from "./components/auth/SignUp";
 import LogIn from "./components/auth/LogIn";
+import LogInPage from "./pages/LogInPage";
 
 const router = createBrowserRouter([
   {
@@ -67,11 +67,11 @@ const router = createBrowserRouter([
   },
   {
     path: "login",
-    element: <LogIn />,
+    element: <LogInPage isRegister={false} />,
   },
   {
     path: "cadastre",
-    element: <SignUp />,
+    element: <LogInPage isRegister={true} />,
   },
 ]);
 

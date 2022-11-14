@@ -57,10 +57,13 @@ const Form = () => {
       });
   };
   useEffect(() => {
-    if (!user) {
-      navigate("/login");
+    if (user) {
+      // navigate("/");
+      console.log("tem");
+    } else {
+      console.log("n tem");
     }
-  });
+  }, [user]);
 
   return (
     <>

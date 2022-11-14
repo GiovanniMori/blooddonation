@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 const Backdrop = ({ children, onClick }) => {
   return (
-    <div className="">
+    <div>
       <motion.div
         className="absolute left-[0px] top-[0px] w-full h-full bg-black bg-opacity-80 flex items-center justify-center"
         onClick={onClick}

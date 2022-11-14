@@ -1,10 +1,9 @@
-import { React, useState, useContext } from "react";
-import { Link, Navigate, Outlet, useNavigate } from "react-router-dom";
+import { React } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import Logo from "../assets/blood-donation.png";
 
-import { AuthContextProvider, UserAuth } from "../contexts/AuthContext";
+import { UserAuth } from "../contexts/AuthContext";
 import ModalLogIn from "./modal/ModalLogIn";
-import ModalSignUp from "./modal/ModalSignUp";
 
 const Navbar = () => {
   const { user, logout } = UserAuth();
@@ -51,10 +50,10 @@ const Navbar = () => {
           ) : (
             <>
               <li>
-                <ModalSignUp />
+                <ModalLogIn title="Cadastre-se" isRegister={true} />
               </li>
               <li>
-                <ModalLogIn />
+                <ModalLogIn title="Logar" />
               </li>
             </>
           )}
