@@ -7,180 +7,105 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "./Navbar";
 import loader from "../assets/loader.json";
 import Lottie from "lottie-react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as zod from "zod";
+
+const newCycleFormValidationSchema = zod.object({
+  name: zod.string().min(3, "Informe um nome"),
+  age: zod.string().min(3, "Informe um nome"),
+});
 
 const Form = () => {
-  const navigate = useNavigate();
   const { user } = UserAuth();
-  const [nome, setNome] = useState("");
-  const [idade, setIdade] = useState(0);
-  const [email, setEmail] = useState("");
-  const [rg, setRg] = useState("");
-  const [cpf, setCpf] = useState("");
-  const [genero, setGenero] = useState("");
-  const [tipo_sangue, setTipo_sangue] = useState("");
-
-  const addDoador = () => {
-    Axios.post("https://server-blooddonation.vercel.app/add", {
-      nome: nome,
-      idade: idade,
-      email: email,
-      rg: rg,
-      cpf: cpf,
-      genero: genero,
-      tipo_sangue: tipo_sangue,
-    }).then(() => {
-      console.log(`Dados Enviados com sucesso, nome: ${nome}`);
-    });
-  };
-
-  useEffect(() => {
-    if (!user) {
-      navigate("/login");
-    }
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+    reset,
+  } = useForm({
+    resolver: zodResolver(newCycleFormValidationSchema),
   });
+  const navigate = useNavigate();
+
+  function handleCreateNewCycle(data) {
+    console.log(data);
+    addDoador(data);
+    reset();
+  }
+  // const name = watch("name");
+  //console.log(formState.errors);
+  const addDoador = (data) => {
+    Axios.post(
+      "http://localhost:3001/add",
+      {
+        nome: data.name,
+        idade: data.age,
+      },
+      {
+        headers: {
+          Authorization: "Bearer " + user.accessToken,
+        },
+      }
+    )
+      .then(() => {
+        console.log(`Dados Enviados com sucesso, nome: ${nome}`);
+      })
+      .finally(() => {
+        console.log("oi");
+      });
+  };
+  useEffect(() => {
+    if (user) {
+      // navigate("/");
+      console.log("tem");
+    } else {
+      console.log("n tem");
+    }
+  }, [user]);
 
   return (
     <>
       <Navbar />
-      <div className="flex flex-col">
-        <div className="flex flex-col my-6">
+      <div className="flex bg-red-500 flex-wrap">
+        <section>
           <h2 className="text-3xl font-primary mx-auto text-primary font-bold py-3">
             Digite suas informções para continur usando o sistema
           </h2>
-        </div>
-        <div className="flex flex-col mb-2">
-          <h1 className="text-black font-bold text-lg mx-auto mb-1">
-            Digite seu nome
-          </h1>
-          <input
-            onChange={(event) => {
-              setNome(event.target.value);
-            }}
-            className="py-3 px-2 border-2 border-black w-[700px] rounded-xl mx-auto mb-2"
-            placeholder="Digite o seu Nome"
-          />
+        </section>
+        <form onSubmit={handleSubmit(handleCreateNewCycle)}>
+          <label className="flex mb-2 flex-wrap">
+            <label>
+              <h1 className="text-black font-bold text-lg mx-auto mb-1">
+                Digite seu nome
+              </h1>
+              <input
+                className="py-3 px-2 border-2 border-black rounded-xl mx-auto mb-2"
+                placeholder="Digite o seu Nome"
+                {...register("name", { required: true })}
+              />
+            </label>
+            <label>
+              <h1 className="text-black font-bold text-lg mx-auto mb-1">
+                Insira sua data de nascimento
+              </h1>
+              <input
+                className="py-3 px-2 border-2 border-black rounded-xl mx-auto mb-2"
+                placeholder="Digite o seu Nome"
+                {...register("age", { required: true })}
+              />
+            </label>
+            {errors.name && <span>This field is required</span>}
+          </label>
 
-          <span className="text-primary font-bold text-lg mx-auto mb-1">
-            Preencha o campo nome
-          </span>
-        </div>
-
-        <div className="flex flex-col mb-2">
-          <h1 className="text-black font-bold text-lg mx-auto mb-1">
-            Digite sua idade
-          </h1>
-          <input
-            onChange={(event) => {
-              setIdade(event.target.value);
-            }}
-            className="py-3 px-2 border-2 border-black w-[700px] rounded-xl mx-auto mb-2"
-            placeholder="Digite a sua idade"
-          />
-
-          <span className="text-primary font-bold text-lg mx-auto mb-1">
-            Preencha o campo CPF
-          </span>
-        </div>
-
-        <div className="flex flex-col mb-2">
-          <h1 className="text-black font-bold text-lg mx-auto mb-1">
-            Digite seu e-mail
-          </h1>
-          <input
-            onChange={(event) => {
-              setEmail(event.target.value);
-            }}
-            className="py-3 px-2 border-2 border-black w-[700px] rounded-xl mx-auto mb-2"
-            placeholder="Digite o seu Email"
-          />
-
-          <span className="text-primary font-bold text-lg mx-auto mb-1">
-            Preencha o campo e-mail
-          </span>
-        </div>
-
-        <div className="flex flex-col mb-2">
-          <h1 className="text-black font-bold text-lg mx-auto mb-1">
-            Digite o seu RG
-          </h1>
-          <input
-            onChange={(event) => {
-              setRg(event.target.value);
-            }}
-            className="py-3 px-2 border-2 border-black w-[700px] rounded-xl mx-auto mb-2"
-            placeholder="Digite o seu RG"
-          />
-
-          <span className="text-primary font-bold text-lg mx-auto mb-1">
-            Preencha o campo tipo sanguineo
-          </span>
-        </div>
-
-        <div className="flex flex-col mb-2">
-          <h1 className="text-black font-bold text-lg mx-auto mb-1">
-            Digite seu CPF
-          </h1>
-          <input
-            onChange={(event) => {
-              setCpf(event.target.value);
-            }}
-            className="py-3 px-2 border-2 border-black w-[700px] rounded-xl mx-auto mb-2"
-            placeholder="Digite o seu CPF"
-          />
-
-          <span className="text-primary font-bold text-lg mx-auto mb-1">
-            Preencha o campo tipo sanguineo
-          </span>
-        </div>
-
-        <div className="flex flex-col mb-2">
-          <h1 className="text-black font-bold text-lg mx-auto mb-1">
-            Selecione seu Genero
-          </h1>
-          <input
-            onChange={(event) => {
-              setGenero(event.target.value);
-            }}
-            className="py-3 px-2 border-2 border-black w-[700px] rounded-xl mx-auto mb-2"
-            placeholder="Selecione o seu genero"
-          />
-
-          <span className="text-primary font-bold text-lg mx-auto mb-1">
-            Preencha o campo tipo sanguineo
-          </span>
-        </div>
-
-        <div className="flex flex-col mb-2">
-          <h1 className="text-black font-bold text-lg mx-auto mb-1">
-            Selecione seu tipo sanguíneo
-          </h1>
-          <input
-            onChange={(event) => {
-              setTipo_sangue(event.target.value);
-            }}
-            className="py-3 px-2 border-2 border-black w-[700px] rounded-xl mx-auto mb-2"
-            placeholder="Selecione o seu tipo sanguíneo"
-          />
-
-          <span className="text-primary font-bold text-lg mx-auto mb-1">
-            Preencha o campo tipo sanguineo
-          </span>
-        </div>
-
-        <div className="flex mb-2 justify-center">
-          <input
-            onClick={(addDoador, loader)}
-            className="border-2 border-black py-2 w-32 font-bold rounded-xl cursor-pointer mr-2 hover:bg-primary hover:border-tertiary"
-            type="submit"
-          />
-          <input
-            className="border-2 border-black py-2 w-32 font-bold rounded-xl cursor-pointer ml-2 hover:bg-primary hover:border-tertiary"
-            type="button"
-            onClick={() => reset()}
-            value="Limpar"
-          />
-        </div>
-
+          <div className="flex mb-2 justify-center">
+            <input
+              className="border-2 border-black py-2 w-32 font-bold rounded-xl cursor-pointer mr-2 hover:bg-primary hover:border-tertiary"
+              type="submit"
+            />
+          </div>
+        </form>
         <div>
           <UserCard />
         </div>
