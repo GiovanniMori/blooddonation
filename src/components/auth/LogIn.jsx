@@ -23,7 +23,7 @@ function Signin(props) {
   useEffect(() => {
     if (user) {
       // navigate("/");
-      console.log("tem");
+      console.log("tem", user);
     } else {
       console.log("n tem");
     }

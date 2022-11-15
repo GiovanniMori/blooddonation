@@ -20,13 +20,13 @@ const Navbar = () => {
   };
 
   return (
-    <div className="pt-6 pl-8 pr-8 flex justify-between text-xl text-weigh font-medium h-20 items-center overflow-hidden">
-      <div className="flex gap-5 mr-36">
+    <div className="pt-6 pl-8 pr-8 pb-6 flex justify-between text-xl text-weigh font-medium h-20 items-center overflow-hidden ">
+      <div className="flex gap-5 mr-36 items-center">
         <img src={Logo} width="40px" />
         <h1>Blood Donation</h1>
       </div>
-      <div>
-        <ul className="flex gap-20 ">
+      <div className=" items-center hidden lg:flex ">
+        <ul className="flex gap-20 items-center ">
           <li>
             <Link to="/" relative="path">
               Início
@@ -50,10 +50,12 @@ const Navbar = () => {
           ) : (
             <>
               <li>
-                <ModalLogIn title="Cadastre-se" isRegister={true} />
-              </li>
-              <li>
                 <ModalLogIn title="Logar" />
+              </li>
+              <li className="rounded-lg p-4 bg-red-500 text-white hover:scale-105 ">
+                <Link to="/cadastrar" relative="path">
+                  Cadastrar
+                </Link>
               </li>
             </>
           )}

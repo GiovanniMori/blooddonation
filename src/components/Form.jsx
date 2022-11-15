@@ -1,12 +1,9 @@
 import React, { useEffect } from "react";
 import { UserAuth } from "../contexts/AuthContext";
 import Axios from "axios";
-import { useState } from "react";
 import UserCard from "../components/User-card/userCard";
 import { useNavigate } from "react-router-dom";
 import Navbar from "./Navbar";
-import loader from "../assets/loader.json";
-import Lottie from "lottie-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as zod from "zod";
@@ -16,7 +13,7 @@ const newCycleFormValidationSchema = zod.object({
   age: zod.string().min(3, "Informe um nome"),
 });
 
-const Form = () => {
+function Form() {
   const { user } = UserAuth();
   const {
     register,
@@ -59,7 +56,7 @@ const Form = () => {
   useEffect(() => {
     if (user) {
       // navigate("/");
-      console.log("tem");
+      console.log("tem", user);
     } else {
       console.log("n tem");
     }
@@ -112,6 +109,6 @@ const Form = () => {
       </div>
     </>
   );
-};
+}
 
 export default Form;
