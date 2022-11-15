@@ -21,9 +21,11 @@ const Navbar = () => {
 
   return (
     <div className="pt-6 pl-8 pr-8 pb-6 flex justify-between text-xl text-weigh font-medium h-20 items-center overflow-hidden ">
-      <div className="flex gap-5 mr-36 items-center">
-        <img src={Logo} width="40px" />
-        <h1>Blood Donation</h1>
+      <div>
+        <Link to="/" relative="path" className="flex gap-5 mr-36 items-center">
+          <img src={Logo} width="40px" />
+          <h1>Blood Donation</h1>
+        </Link>
       </div>
       <div className=" items-center hidden lg:flex ">
         <ul className="flex gap-20 items-center ">

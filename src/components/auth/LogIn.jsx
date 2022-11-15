@@ -20,14 +20,14 @@ function Signin(props) {
     }
   };
 
-  useEffect(() => {
-    if (user) {
-      // navigate("/");
-      console.log("tem", user);
-    } else {
-      console.log("n tem");
-    }
-  }, [user]);
+  // useEffect(() => {
+  //   if (user) {
+  //     // navigate("/");
+  //     console.log("tem", user);
+  //   } else {
+  //     console.log("n tem");
+  //   }
+  // }, [user]);
 
   const handleSubmitSignIn = async (e) => {
     e.preventDefault();
