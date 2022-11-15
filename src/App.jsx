@@ -1,5 +1,11 @@
 import React from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  BrowserRouter,
+  createBrowserRouter,
+  Route,
+  Router,
+  RouterProvider,
+} from "react-router-dom";
 import AboutDonate from "./pages/About";
 import CentroModal from "./components/Onde doar/modais/centroModal";
 import NordesteModal from "./components/Onde doar/modais/nordesteModal";
@@ -13,6 +19,7 @@ import Hero from "./components/Hero";
 import Form from "./components/Form";
 import LogIn from "./components/auth/LogIn";
 import LogInPage from "./pages/LogInPage";
+import ProtectedRoute from "./contexts/ProtectedRoute";
 
 const router = createBrowserRouter([
   {
@@ -22,11 +29,19 @@ const router = createBrowserRouter([
   },
   {
     path: "form",
-    element: <Form />,
+    element: (
+      <ProtectedRoute>
+        <Form />
+      </ProtectedRoute>
+    ),
   },
   {
     path: "user",
-    element: <UserPage />,
+    element: (
+      <ProtectedRoute>
+        <UserPage />
+      </ProtectedRoute>
+    ),
     errorElement: <ErrorPage />,
   },
 
@@ -70,7 +85,7 @@ const router = createBrowserRouter([
     element: <LogInPage isRegister={false} />,
   },
   {
-    path: "cadastre",
+    path: "cadastrar",
     element: <LogInPage isRegister={true} />,
   },
 ]);
