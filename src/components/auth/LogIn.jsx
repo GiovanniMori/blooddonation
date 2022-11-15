@@ -86,13 +86,13 @@ function Signin(props) {
             <div className="mt-2 flex gap-1 justify-center">
               <p className="text-slate-800 text-lg">Já tem conta?</p>
 
-              <button onClick={Switch} className="text-red-400">
+              <button onClick={Switch} className="text-red-800 font-bold">
                 Entre
               </button>
             </div>
-            <h1>
+            <p className="text-slate-800 text-sm ">
               Ao clicar "Criar Conta", eu concordo com os termos e condições
-            </h1>
+            </p>
           </div>
         </div>
       ) : (
@@ -128,11 +128,13 @@ function Signin(props) {
               Entrar
             </button>
             <div>
-              <button className="text-red-400">Esqueceu a senha?</button>
+              <button className="text-red-800 font-bold">
+                Esqueceu a senha?
+              </button>
             </div>
-            <div className="mt-2 flex gap-2 justify-center">
-              <p className="text-slate-800 text-sm">Não tem conta ainda?</p>
-              <button onClick={Switch} className="text-red-400">
+            <div className="mt-2 flex gap-2 justify-center items-center">
+              <p className="text-slate-800 text-sm ">Não tem conta ainda?</p>
+              <button onClick={Switch} className="text-red-800 font-bold">
                 Cadastre
               </button>
             </div>
