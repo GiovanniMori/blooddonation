@@ -44,7 +44,7 @@ function Modallog(props) {
               animate="visible"
               exit="exit"
             >
-              <div className="flex justify-end">
+              <div className="flex justify-end w-[395px]   ml-3">
                 <AiOutlineClose
                   className="h-7 w-7 hover:cursor-pointer "
                   onClick={close}

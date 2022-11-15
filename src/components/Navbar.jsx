@@ -22,7 +22,7 @@ const Navbar = () => {
   return (
     <div className="pt-6 pl-8 pr-8 pb-6 flex justify-between text-xl text-weigh font-medium h-20 items-center overflow-hidden ">
       <div>
-        <Link to="/" relative="path" className="flex gap-5 mr-36 items-center">
+        <Link to="/" relative="path" className="flex gap-5  items-center">
           <img src={Logo} width="30px" />
           <h1>Blood Donation</h1>
         </Link>
