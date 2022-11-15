@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { UserAuth } from "../../contexts/AuthContext";
 import SignInGoogle from "./SignInGoogle";
 
@@ -51,25 +51,25 @@ function Signin(props) {
   return (
     <>
       {register ? (
-        <div className="text-center mx-auto px-3">
+        <div className="text-center mx-auto  w-[336px] ">
           <div className="flex flex-col">
-            <div className="mt-6 mb-3 py-2">
+            <div>
               <SignInGoogle />
             </div>
-            <h1 className="mb-3 text-lg text-black font-bold">ou</h1>
+            <h1 className="mb-3 mt-3 text-lg text-slate-800 font-bold">ou</h1>
             <div className="flex flex-col mb-2">
               <input
-                className="py-2 px-6 mb-5 text-black border-2 border-black rounded-2xl"
+                className="py-3 px-6 mb-5 text-slate-800 border-2 border-black rounded-xl"
                 type="email"
-                placeholder="Digite seu Email"
+                placeholder="Email"
                 onChange={(event) => {
                   setRegisterEmail(event.target.value);
                 }}
               ></input>
               <input
-                className="py-2 px-6 mb-5 text-black border-2 border-black rounded-2xl"
+                className="py-3 px-6 mb-5 text-slate-800 border-2 border-black rounded-xl"
                 type="password"
-                placeholder="Digite sua Senha"
+                placeholder="Senha"
                 onChange={(event) => {
                   setRegisterPassword(event.target.value);
                 }}
@@ -78,42 +78,43 @@ function Signin(props) {
 
             <button
               type="submit"
-              className="text-white font-bold text-xl py-2 px-5 mb-3 mx-auto rounded-xl border-white border-2 bg-primary"
+              className="text-white font-bold text-xl py-3 px-5 mb-3 mx-auto rounded-xl border-white border-2 bg-red-500"
               onClick={handleSubmit}
             >
               Criar Conta
             </button>
-            <div className="mt-2">
-              <p className="text-black text-lg">Já tem conta?</p>
+            <div className="mt-2 flex gap-1 justify-center">
+              <p className="text-slate-800 text-lg">Já tem conta?</p>
 
-              <button onClick={Switch}>Entre</button>
+              <button onClick={Switch} className="text-red-400">
+                Entre
+              </button>
             </div>
-
             <h1>
               Ao clicar "Criar Conta", eu concordo com os termos e condições
             </h1>
           </div>
         </div>
       ) : (
-        <div className="text-center mx-auto px-3">
+        <div className="text-center mx-auto  w-[336px]">
           <div className="flex flex-col">
-            <div className="mt-6 mb-3 py-2">
+            <div>
               <SignInGoogle />
             </div>
-            <h1 className="mb-3 text-lg text-black font-bold">ou</h1>
+            <h1 className="mb-3 mt-3 text-lg text-slate-800 font-bold">ou</h1>
             <div className="flex flex-col mb-2">
               <input
-                className="py-2 px-6 mb-5 text-black border-2 border-black rounded-2xl"
+                className="py-3 px-6 mb-5 text-slate-800 border-2 border-black rounded-xl"
                 type="email"
-                placeholder="Digite seu Email"
+                placeholder="Email"
                 onChange={(event) => {
                   setEmail(event.target.value);
                 }}
               ></input>
               <input
-                className="py-2 px-6 mb-5 text-black border-2 border-black rounded-2xl"
+                className="py-3 px-6 mb-5 border-2 border-black rounded-xl"
                 type="password"
-                placeholder="Digite sua Senha"
+                placeholder="Senha"
                 onChange={(event) => {
                   setPassword(event.target.value);
                 }}
@@ -121,15 +122,20 @@ function Signin(props) {
             </div>
             <button
               type="submit"
-              className="text-white font-bold text-xl py-2 px-5 mb-3 mx-auto rounded-xl border-white border-2 bg-primary"
+              className="text-white font-bold text-xl py-3 px-5 mb-3 mx-auto rounded-xl border-white border-2 bg-red-500"
               onClick={handleSubmitSignIn}
             >
               Entrar
             </button>
-            <div className="mt-2">
-              <p className="text-black text-lg">Não tem conta ainda?</p>
+            <div>
+              <button className="text-red-400">Esqueceu a senha?</button>
             </div>
-            <button onClick={Switch}>Cadastre</button>
+            <div className="mt-2 flex gap-2 justify-center">
+              <p className="text-slate-800 text-sm">Não tem conta ainda?</p>
+              <button onClick={Switch} className="text-red-400">
+                Cadastre
+              </button>
+            </div>
           </div>
         </div>
       )}
