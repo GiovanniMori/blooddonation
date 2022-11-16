@@ -43,6 +43,7 @@ function Modallog(props) {
               initial="hidden"
               animate="visible"
               exit="exit"
+              grab
             >
               <div className="flex justify-end w-[395px]   ml-3">
                 <AiOutlineClose
