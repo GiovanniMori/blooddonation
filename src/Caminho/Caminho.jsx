@@ -20,9 +20,9 @@ const Caminho = () => {
     const te8 = "O receptor realiza a transfusão do sangue."
 
     return (
-        <div>
+        <div className="h-screen static">
             <h1 className="text-primary font-bold text-6xl py-10">Caminho do sangue no processo de doação</h1>
-            <div className="flex absolute">
+            <div className="flex static">
                 <Step title={t1} text={te1}/>
                 <Step title={t2} text={te2} />
                 <Step title={t3} text={te3} />
