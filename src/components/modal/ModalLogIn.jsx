@@ -1,7 +1,7 @@
 import { React, useState } from "react";
 import { motion } from "framer-motion";
 import Backdrop from "./Backdrop";
-import Signin from "../auth/LogIn";
+import LogIn from "../auth/LogIn";
 import { AiOutlineClose } from "react-icons/ai";
 
 const dropIn = {
@@ -25,33 +25,36 @@ const dropIn = {
   },
 };
 
-const Modallog = () => {
+function Modallog(props) {
   const [modalOpen, setModalOpen] = useState(false);
   const close = () => setModalOpen(false);
   const open = () => setModalOpen(true);
 
   return (
     <div>
-      <button onClick={open}>Entrar</button>
+      <button onClick={open}>{props.title}</button>
       {modalOpen && (
         <Backdrop onClick={() => (modalOpen ? close() : open())}>
-          <div className="flex flex-col">
+          <div className="flex flex-col ">
             <motion.div
               onClick={(e) => e.stopPropagation()}
-              className="rounded-xl bg-primary pl-10 pr-4 pt-5 pb-6 border-black border-4"
+              className="rounded-xl bg-red-500 pl-10 pr-4 pt-5 pb-6 border-black border-4"
               variants={dropIn}
               initial="hidden"
               animate="visible"
               exit="exit"
             >
-              <AiOutlineClose className="h-7 w-7 float-right" onClick={close} />
-              <Signin />
+              <AiOutlineClose
+                className="h-7 w-7 float-right hover:cursor-pointer "
+                onClick={close}
+              />
+              <LogIn isRegister={props.isRegister} />
             </motion.div>
           </div>
         </Backdrop>
       )}
     </div>
   );
-};
+}
 
 export default Modallog;

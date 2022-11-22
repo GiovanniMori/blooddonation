@@ -1,10 +1,9 @@
-import { React, useState, useContext } from "react";
-import { Link, Navigate, Outlet, useNavigate } from "react-router-dom";
+import { React } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import Logo from "../assets/blood-donation.png";
 
-import { AuthContextProvider, UserAuth } from "../contexts/AuthContext";
+import { UserAuth } from "../contexts/AuthContext";
 import ModalLogIn from "./modal/ModalLogIn";
-import ModalSignUp from "./modal/ModalSignUp";
 
 const Navbar = () => {
   const { user, logout } = UserAuth();
@@ -21,15 +20,15 @@ const Navbar = () => {
   };
 
   return (
-    <div className="pt-6 pl-8 pr-8 flex justify-between text-xl text-weigh font-medium h-20 items-center">
-      <div className="flex gap-5">
+    <div className="pt-6 pl-8 pr-8 pb-6 flex justify-between text-xl text-weigh font-medium h-20 items-center overflow-hidden ">
+      <div className="flex gap-5 mr-36 items-center">
         <Link to='/'>
         <img src={Logo} width="40px" />
         </Link>
         <h1>Blood Donation</h1>
       </div>
-      <div>
-        <ul className="flex gap-20 ">
+      <div className=" items-center hidden lg:flex ">
+        <ul className="flex gap-20 items-center ">
           <li>
             <Link to="/" relative="path">
               Início
@@ -58,10 +57,12 @@ const Navbar = () => {
           ) : (
             <>
               <li>
-                <ModalSignUp />
+                <ModalLogIn title="Logar" />
               </li>
-              <li>
-                <ModalLogIn />
+              <li className="rounded-lg p-4 bg-red-500 text-white hover:scale-105 ">
+                <Link to="/cadastrar" relative="path">
+                  Cadastrar
+                </Link>
               </li>
             </>
           )}

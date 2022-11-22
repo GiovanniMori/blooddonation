@@ -1,16 +1,25 @@
 import React from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  BrowserRouter,
+  createBrowserRouter,
+  Route,
+  Router,
+  RouterProvider,
+} from "react-router-dom";
 import AboutDonate from "./pages/About";
 import UserPage from "./components/User/UserPage";
 import ErrorPage from "./error-page";
 import HomePage from "./pages/HomePage";
 import Hero from "./components/Hero";
 import Form from "./components/Form";
-import SignUp from "./components/auth/SignUp";
 import LogIn from "./components/auth/LogIn";
+
 import loader from "./assets/loader.json";
 import Lottie from "lottie-react";
 import Beneficios from "./components/Beneficios/Beneficios";
+import LogInPage from "./pages/LogInPage";
+import ProtectedRoute from "./contexts/ProtectedRoute";
+
 
 const router = createBrowserRouter([
   {
@@ -20,11 +29,19 @@ const router = createBrowserRouter([
   },
   {
     path: "form",
-    element: <Form />,
+    element: (
+      <ProtectedRoute>
+        <Form />
+      </ProtectedRoute>
+    ),
   },
   {
     path: "user",
-    element: <UserPage />,
+    element: (
+      <ProtectedRoute>
+        <UserPage />
+      </ProtectedRoute>
+    ),
     errorElement: <ErrorPage />,
   },
 
@@ -38,11 +55,11 @@ const router = createBrowserRouter([
   },
   {
     path: "login",
-    element: <LogIn />,
+    element: <LogInPage isRegister={false} />,
   },
   {
-    path: "cadastre",
-    element: <SignUp />,
+    path: "cadastrar",
+    element: <LogInPage isRegister={true} />,
   },
   {
     path: "beneficios",
