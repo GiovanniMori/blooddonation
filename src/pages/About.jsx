@@ -14,7 +14,7 @@ const AboutDonate = () => {
       <div className="w-full py-8 px-10">
         <div className="flex pl-20 pt-10 pr-20 h-50 justify-between">
           <div className="flex flex-col my-auto">
-            <h1 className="text-8xl text-primary font-semibold mb-8">No BRASIL apenas 1% da população doa sangue</h1>
+            <h1 className="text-8xl text-primary font-semibold mb-8">No BRASIL apenas 1% da população doa sangue.</h1>
             <h3 className="text-black text-3xl mb-8">Esse FATO é um grande problema, pois a escassez por sangue nos hemocentros nacionais
              se torna uma realidade fazendo com que pessoas corram risco de vida por falta desse recurso natural e fundamental para nossa existência.
            </h3>
@@ -41,11 +41,14 @@ const AboutDonate = () => {
               <li className="text-4xl font-semibold text-gray-700 mb-3">2-Ter idade entre 16 e 69 anos de idade</li>
               <li className="text-4xl font-semibold text-gray-700 mb-3">3-Apresentar documento original com foto recente</li>
               <li className="text-4xl font-semibold text-gray-700 mb-3">4-Não fazer uso de drogas ilícitas injetáveis</li>
-              <li className="text-4xl font-semibold text-gray-700 mb-3">5- O doador tem direito a um dia de folga no trabalho</li>
+              <li className="text-4xl font-semibold text-gray-700 mb-3">5-Estar alimentado</li>
             </ul>
           </div>
         </div>
+        <div className="items-center pl-20">
         <Caminho />
+        </div>
+
       </div>
     </>
   );

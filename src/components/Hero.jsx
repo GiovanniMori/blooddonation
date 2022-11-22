@@ -26,28 +26,22 @@ const Hero = () => {
   return (
     <>
       <Navbar />
-      <div className="w-full text-center flex flex-col py-16 bg-primary mx-auto justify-center">
-        <h1 className="text-5xl md:py-6 text-white font-bold">
-          Doe Sangue, Salve uma vida
+      <div className="w-full text-center flex flex-col pt-32  mx-auto justify-center">
+        <h1 className="text-7xl md:py-6 text-primary font-bold mt-8 ">
+          Descubra a localização do Hemocentro mais próximo
         </h1>
-        <h1 className="text-3xl md:py-6 text-white font-bold">
-          Ganhe Beneficios doando sangue
+        <h1 className="text-5xl mt-8 md:py-6 text-tertiary font-bold">
+          Ganhe Benefícios doando sangue
         </h1>
         <div className="flex justiify-center text-4x1 items-center mx-auto">
-          <p className="text-4xl text-white font-bold ">
-            Por um Brasil mais doador
+          <p className="text-6xl text-red-900 font-bold mt-8  ">
+            Juntos por um Brasil mais doador
           </p>
           <span
-            className="text-4xl text-tertiary font bold px-4"
+            className="text-6xl text-tertiary font bold px-4 mt-8 "
             ref={el}
           ></span>
         </div>
-        <Link
-          to="/aboutdonate"
-          className="bg-primary w-[200px] border-4 border-white mt-16 border-opacity-70 text-3xl py-6 rounded-md font-medium text-white text-center px-2 mx-auto my-6"
-        >
-          Saiba mais
-        </Link>
         <OndeDoar />
       </div>
     </>

@@ -23,14 +23,14 @@ const Caminho = () => {
         <div className="h-screen static">
             <h1 className="text-primary font-bold text-6xl py-10">Caminho do sangue no processo de doação</h1>
             <div className="flex static">
-                <Step title={t1} text={te1}/>
-                <Step title={t2} text={te2} />
-                <Step title={t3} text={te3} />
-                <Step title={t4} text={te4} />
-                <Step title={t5} text={te5}/>
-                <Step title={t6} text={te6} />
-                <Step title={t7} text={te7} />
-                <Step title={t8} text={te8} />
+                <Step title={t1} text={te1} logo="Primeiro"/>
+                <Step title={t2} text={te2} logo="Segundo" />
+                <Step title={t3} text={te3} logo="terceiro" />
+                <Step title={t4} text={te4} logo="Quarto" />
+                <Step title={t5} text={te5} logo="Quinto" />
+                <Step title={t6} text={te6} logo="Sexto"/>
+                <Step title={t7} text={te7} logo="Sétimo" />
+                <Step title={t8} text={te8} logo="Oitavo" />
             </div>
         </div>
         
