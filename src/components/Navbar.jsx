@@ -22,7 +22,9 @@ const Navbar = () => {
   return (
     <div className="pt-6 pl-8 pr-8 pb-6 flex justify-between text-xl text-weigh font-medium h-20 items-center overflow-hidden ">
       <div className="flex gap-5 mr-36 items-center">
+        <Link to='/'>
         <img src={Logo} width="40px" />
+        </Link>
         <h1>Blood Donation</h1>
       </div>
       <div className=" items-center hidden lg:flex ">
@@ -35,6 +37,11 @@ const Navbar = () => {
           <li>
             <Link to="/sobre" relative="path">
               Sobre
+            </Link>
+          </li>
+          <li>
+            <Link to="/beneficios" relative="path">
+              Beneficios
             </Link>
           </li>
           <li>

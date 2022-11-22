@@ -20,6 +20,7 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.39.3",
     "react-icons": "^4.6.0",
+    "react-lottie": "^1.2.3",
     "react-router-dom": "^6.4.3",
     "typed.js": "^2.0.12",
     "zod": "^3.19.1"

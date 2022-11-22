@@ -2,89 +2,53 @@ import React from "react";
 import loader from "../assets/loader.json";
 import Lottie from "lottie-react";
 import Navbar from "../components/Navbar";
+import Caminho from "../Caminho/Caminho";
+import Ilustration from "../assets/blood-data.jpeg";
+import LottieView from "lottie-react"
+import bloodDance from "../assets/blood-dance.json"
 
 const AboutDonate = () => {
   return (
     <>
       <Navbar />
-      <div className=" w-full py-8 px-10">
-        <div className="flex flex-col px-6">
-          <h1 className="text-gray-900 font-bold text-4xl mx-auto text-center py-4">
-            Sobre a doação de sangue
-          </h1>
-          <Lottie className="w-60" animationData={loader} loop={true} />
-          <p className="text-primary text-xl font-bold">
-            Doar sangue é um processo simples, rápido e totalmente seguro. Onde
-            em muitos casos, a transfusão de sangue é a única esperança de vida
-            para algumas pessoas. Tem sempre alguém necessitando de uma doação.
-          </p>
-        </div>
-        <div className="flex flex-col px-6">
-          <h1 className="text-gray-900 font-bold text-4xl mx-auto text-center py-4">
-            Qual a importância da doação de sangue
-          </h1>
-          <p className="text-primary text-xl font-bold">
-            O ato de doar sangue é, em si, um ato extremamente importante, uma
-            vez que o sangue humano não pode ser fabricado artificialmente, ou
-            seja, ele é insubstituível, agora mais que nunca a doação é de
-            extrema importância, uma vez que, devido a pandemia, os estoques
-            foram impactados de maneira negativa. Além do mais, em algumas
-            situações, a transfusão é inevitável, sendo, portanto, essencial que
-            haja sangue em estoque, o qual é conseguido exclusivamente por
-            doação.
-          </p>
-        </div>
-        <h2 className="text-quartenary font-bold text-4xl mx-auto text-center py-8">
-          Precisamos da sua ajuda. DOE
-        </h2>
-        <div className="bg-primary flex justify-between px-10 py-9">
-          <div className="px-10">
-            <h1 className="font-bold text-white text-2xl py-2">
-              Requisitos para doação
-            </h1>
-            <ul className="py-4">
-              <li className="font-bold text-base text-quartenary">
-                ● Estar em boas condições de saúde.
-              </li>
-              <li className="font-bold text-base text-quartenary">
-                ● Pesar no mínimo 50 kg.
-              </li>
-              <li className="font-bold text-base text-quartenary">
-                ● Ter entre 16 e 69 anos, desde que a primeira doação tenha sido
-                feita até 60 anos.
-              </li>
-              <li className="font-bold text-base text-quartenary">
-                ●Apresentar documento original com foto recente, que permita a
-                identificação do candidato, emitido por órgão oficial;
-              </li>
+      <div className="w-full py-8 px-10">
+        <div className="flex pl-20 pt-10 pr-20 h-50 justify-between">
+          <div className="flex flex-col my-auto">
+            <h1 className="text-8xl text-primary font-semibold mb-8">No BRASIL apenas 1% da população doa sangue.</h1>
+            <h3 className="text-black text-3xl mb-8">Esse FATO é um grande problema, pois a escassez por sangue nos hemocentros nacionais
+             se torna uma realidade fazendo com que pessoas corram risco de vida por falta desse recurso natural e fundamental para nossa existência.
+           </h3>
+           <h1 className="text-red-900 inline-block text-4xl font-semibold ">O que falta para você nos ajudar nessa batalha?</h1>
+          </div>
+          <img src={Ilustration} />
+        </div> 
+        <div className="py-32 flex">
+          <div className="p-8">
+            <h1 className="text-7xl text-orange-900 font-bold text-center">Motivos para doar sangue</h1>
+            <ul className="mt-16">
+              <li className="text-4xl font-semibold text-gray-700 mb-3">1-Uma única doação pode salvar até quatro vidas</li>
+              <li className="text-4xl font-semibold text-gray-700 mb-3">2- Não existe substituto para o sangue</li>
+              <li className="text-4xl font-semibold text-gray-700 mb-3">3- Não há risco de contrair doenças durante a doação</li>
+              <li className="text-4xl font-semibold text-gray-700 mb-3">4 - Seu organismo repõe rapidamente o sangue doado</li>
+              <li className="text-4xl font-semibold text-gray-700 mb-3">5- O doador tem direito a um dia de folga no trabalho</li>
             </ul>
           </div>
-          <div className="px-10">
-            <h1 className="font-bold text-white text-2xl py-2">
-              Pessoas que não podem doar:
-            </h1>
-            <ul className="py-4">
-              <li className="font-bold text-base text-quartenary">
-                ● Pessoas que tiveram Hepatite após os 11 anos de idade.
-              </li>
-              <li className="font-bold text-base text-quartenary">
-                ● Pessoas que usaram de drogas ilícitas injetáveis.
-              </li>
-              <li className="font-bold text-base text-quartenary">
-                ● Pessoas que possuem evidência clínica ou laboratorial das
-                seguintes doenças infecciosas transmissíveis pelo sangue:
-                Hepatites B e C, AIDS (vírus HIV), doenças associadas aos vírus
-                HTLV I e II e Doença de Chagas.
-              </li>
-              <li className="font-bold text-base text-quartenary">
-                ● Pessoas que tiveram Malária.
-              </li>
-              <li className="font-bold text-base text-quartenary">
-                ● Pessoas que tem Mal de Parkinson
-              </li>
+
+          <div className="p-8">
+            <h1 className="text-7xl text-orange-900 font-bold text-center">Requisitos para doar sangue</h1>
+            <ul className="mt-16">
+              <li className="text-4xl font-semibold text-gray-700 mb-3">1-Pesar no mínimo 50 quilos</li>
+              <li className="text-4xl font-semibold text-gray-700 mb-3">2-Ter idade entre 16 e 69 anos de idade</li>
+              <li className="text-4xl font-semibold text-gray-700 mb-3">3-Apresentar documento original com foto recente</li>
+              <li className="text-4xl font-semibold text-gray-700 mb-3">4-Não fazer uso de drogas ilícitas injetáveis</li>
+              <li className="text-4xl font-semibold text-gray-700 mb-3">5-Estar alimentado</li>
             </ul>
           </div>
         </div>
+        <div className="items-center pl-20">
+        <Caminho />
+        </div>
+
       </div>
     </>
   );
