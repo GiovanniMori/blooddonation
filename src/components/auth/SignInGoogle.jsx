@@ -24,7 +24,7 @@ export default function SignInGoogle() {
   return (
     <div>
       <button
-        className="text-black font-bold text-sm mt-3   mx-auto rounded-xl py-2 px-6 border-2 border-black bg-white flex"
+        className="text-black font-bold text-sm mt-4 w-full  rounded-xl py-3 px-6 border-2 border-black bg-white flex justify-center "
         onClick={handleLogin}
       >
         <FcGoogle className="mr-2 h-5 w-6" />

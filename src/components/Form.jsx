@@ -53,14 +53,14 @@ function Form() {
         console.log("oi");
       });
   };
-  useEffect(() => {
-    if (user) {
-      // navigate("/");
-      console.log("tem", user);
-    } else {
-      console.log("n tem");
-    }
-  }, [user]);
+  // useEffect(() => {
+  //   if (user) {
+  //     // navigate("/");
+  //     console.log("tem", user);
+  //   } else {
+  //     console.log("n tem");
+  //   }
+  // }, [user]);
 
   return (
     <>

@@ -38,16 +38,20 @@ function Modallog(props) {
           <div className="flex flex-col ">
             <motion.div
               onClick={(e) => e.stopPropagation()}
-              className="rounded-xl bg-red-500 pl-10 pr-4 pt-5 pb-6 border-black border-4"
+              className="rounded-xl bg-red-500 p-6 border-black border-4"
               variants={dropIn}
               initial="hidden"
               animate="visible"
               exit="exit"
+              grab
             >
-              <AiOutlineClose
-                className="h-7 w-7 float-right hover:cursor-pointer "
-                onClick={close}
-              />
+              <div className="flex justify-end w-[395px]   ml-3">
+                <AiOutlineClose
+                  className="h-7 w-7 hover:cursor-pointer "
+                  onClick={close}
+                />
+              </div>
+
               <LogIn isRegister={props.isRegister} />
             </motion.div>
           </div>

@@ -1,6 +1,6 @@
 import { React } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Logo from "../assets/blood-donation.png";
+import Logo from "../assets/logo.svg";
 
 import { UserAuth } from "../contexts/AuthContext";
 import ModalLogIn from "./modal/ModalLogIn";
@@ -21,11 +21,11 @@ const Navbar = () => {
 
   return (
     <div className="pt-6 pl-8 pr-8 pb-6 flex justify-between text-xl text-weigh font-medium h-20 items-center overflow-hidden ">
-      <div className="flex gap-5 mr-36 items-center">
-        <Link to='/'>
-        <img src={Logo} width="40px" />
+      <div>
+        <Link to="/" relative="path" className="flex gap-5  items-center">
+          <img src={Logo} width="30px" />
+          <h1>Blood Donation</h1>
         </Link>
-        <h1>Blood Donation</h1>
       </div>
       <div className=" items-center hidden lg:flex ">
         <ul className="flex gap-20 items-center ">

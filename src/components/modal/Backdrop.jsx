@@ -5,7 +5,7 @@ const Backdrop = ({ children, onClick }) => {
   return (
     <div>
       <motion.div
-        className="absolute left-[0px] top-[0px] w-full h-full bg-black bg-opacity-80 flex items-center justify-center"
+        className="fixed left-[0px] top-[0px] w-full h-full bg-black bg-opacity-80 flex items-center justify-center"
         onClick={onClick}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
