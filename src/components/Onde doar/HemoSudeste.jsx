@@ -1,3 +1,5 @@
+import {useState, React} from 'react'
+
 let sudeste = {
     1 : {
             Nome: "Fundação PRÓ-SANGUE",
@@ -39,22 +41,40 @@ let sudeste = {
             Endereco: "Av. Marechal Campos, 1468 - Maruípe",
             Telefone: "(27) 3636-7921",
         }
-
-}
-
-export const GetSudeste = () =>{
+  
+  }
+  
+  const GetSudeste = () =>{
     const values = Object.values(sudeste)
     console.log(values)
 
     return (
         <div>
             <div className="text-2xl font-bold flex flex-col mb-3">{values.map(value => <p className="mb-5">{[value.Nome + '\n' , value.Endereco, value.Telefone]}</p>)}</div>
-
         </div>
         
     )
+  }
+
+function HemoSudeste (){
+    const [aparece,setAparece] = useState(false)
+
+    const handleClick = event => {
+        setAparece(current => !current)
+    }
+
+  return (
+    <div className="flex flex-col" >
+      <button onClick={handleClick} className="bg-red-500 rounded-full w-44 h-44 border-4 mr-4 border-black cursor-pointer text-3xl text-white">Sudeste</button>
+      {aparece && (
+        <div className="absolute mx-auto left-1/2 -translate-x-1/2 mt-48 bg-white p-16 bg-opacity-30 border-4 border-red-900 rounded-xl">
+        <h1 className="text-3xl text-primary text-center font-semibold ">{"Hemocentros da região Sudeste"}</h1>
+        <p>{<GetSudeste />}</p>
+    </div>
+    )
+    }
+    </div>
+  )
 }
 
-
- 
-
+export default HemoSudeste
